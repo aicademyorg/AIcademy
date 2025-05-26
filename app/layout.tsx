@@ -12,7 +12,7 @@ export const metadata = createMetadata({
     template: "%s | AIcademy",
     default: "AIcademy - Free AI Education for All",
   },
-  description: "Free AI Education for All",
+  description: "A friendly community offering free AI education",
   metadataBase: baseUrl,
 });
 
