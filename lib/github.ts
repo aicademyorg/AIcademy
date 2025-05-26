@@ -1,9 +1,9 @@
 import { Octokit } from 'octokit';
 import type { Feedback } from '@/components/rate';
 
-export const repo = 'fumadocs-ui';
-export const owner = '3p5ilon';
-export const DocsCategory = 'Docs Feedback';
+export const repo = 'AIcademy';
+export const owner = 'aicademyorg';
+export const DocsCategory = 'Feedback';
 
 let instance: Octokit | undefined;
 
