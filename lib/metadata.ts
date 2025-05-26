@@ -6,18 +6,21 @@ export function createMetadata(override: Metadata): Metadata {
     openGraph: {
       title: override.title ?? undefined,
       description: override.description ?? undefined,
-      url: "",
+      url: "https://aicademyorg.netlify.app",
       images: "/banner.png",
-      siteName: "AI4ALL",
+      siteName: "AIcademy",
       ...override.openGraph,
     },
     twitter: {
       card: "summary_large_image",
-      creator: "@money_is_shark",
+      creator: "@aicademyorg",
       title: override.title ?? undefined,
       description: override.description ?? undefined,
       images: "/banner.png",
       ...override.twitter,
+    },
+    icons: {
+      icon: "/favicon.ico",
     },
   };
 }
