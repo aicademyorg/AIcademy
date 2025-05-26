@@ -1,16 +1,18 @@
 import "./global.css";
+import "katex/dist/katex.css";
 import { RootProvider } from "fumadocs-ui/provider";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { baseUrl, createMetadata } from "@/lib/metadata";
-import "katex/dist/katex.css";
+import { Footer } from "@/components/footer";
+// import { SiteBanner } from "@/components/banner";
 
 export const metadata = createMetadata({
   title: {
     template: "%s | AIcademy",
-    default: "AIcademy",
+    default: "AIcademy - Free AI Education for All",
   },
-  description: "Open source AI education for everyone",
+  description: "Free AI Education for All",
   metadataBase: baseUrl,
 });
 
@@ -38,7 +40,11 @@ export default function Layout({ children }: { children: ReactNode }) {
           minHeight: "100vh",
         }}
       >
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>
+          {/* <SiteBanner /> */}
+          {children}
+          <Footer />
+        </RootProvider>
       </body>
     </html>
   );
