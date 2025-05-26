@@ -1,6 +1,6 @@
 # AIcademy
 
-AIcademy is a friendly community where you can learn AI for free.
+AIcademy is a friendly community offering free AI education.
 
 ## Installation
 
