@@ -1,9 +1,0 @@
-
-cff-version: 1.2.0
-title: 'Open DeepLearning'
-message: "If you use this software, please cite it as below."
-type: software
-authors:
-  - given-names: Severus
-date-released: '2023-10-20'
-url: "https://github.com/open-deeplearning/OpenML-Guide"

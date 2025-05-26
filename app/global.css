@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+:root {
+  --headless-color: hsl(250, 80%, 54%);
+  --ui-color: hsl(220, 91%, 54%);
+  --color-fd-primary: var(--ui-color);
+}
+
+body {
+  overscroll-behavior-y: none;
+  background-color: var(--color-fd-background);
+}
+
+.dark {
+  --headless-color: hsl(250 100% 80%);
+  --ui-color: hsl(217 92% 76%);
+  --color-fd-primary: var(--ui-color);
+}

@@ -1,8 +1,0 @@
-{
-  "-- The Basics": {
-    "type": "separator",
-    "title": "The Basics"
-  },
-  "intro-llms": "Intro to LLMs",
-  "llm-optimization": "LLM Optimization"
-}
