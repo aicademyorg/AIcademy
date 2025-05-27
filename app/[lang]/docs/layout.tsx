@@ -2,10 +2,11 @@ import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import { baseOptions, linkItems } from "@/app/layout.config";
 import { source } from "@/lib/source";
+import { Language } from "@/lib/i18n";
 
 const docsOptions: DocsLayoutProps = {
   ...baseOptions,
-  tree: source.pageTree,
+  tree: source.pageTree as any,
   links: [linkItems[linkItems.length - 1]],
   sidebar: {
     tabs: {
@@ -37,6 +38,21 @@ const docsOptions: DocsLayoutProps = {
   },
 };
 
-export default function Layout({ children }: { children: ReactNode }) {
-  return <DocsLayout {...docsOptions}>{children}</DocsLayout>;
+export default async function Layout({
+  params,
+  children,
+}: {
+  params: Promise<{ lang: Language }>;
+  children: ReactNode;
+}) {
+  const { lang } = await params;
+  return (
+    <DocsLayout
+      {...baseOptions(lang)}
+      {...docsOptions}
+      tree={source.pageTree[lang]}
+    >
+      {children}
+    </DocsLayout>
+  );
 }

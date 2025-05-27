@@ -1,3 +1,4 @@
 {
-  "pages": ["python", "pytorch"]
+  "pages": ["python", "pytorch"],
+  "description": "Welcome to the AIcademy documentation!"
 }

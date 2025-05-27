@@ -1,0 +1,62 @@
+---
+title: 你好，世界
+description: 你的第一个文档
+icon: Code 
+---
+
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+
+欢迎来到文档！你可以在 `/content/docs` 开始编写文档。
+
+## 下一步是什么？
+
+<Cards>
+  <Card title="了解更多关于Next.js" href="https://nextjs.org/docs" />
+  <Card title="了解更多关于Fumadocs" href="https://fumadocs.vercel.app" />
+</Cards>
+
+### 代码块
+
+<DynamicCodeBlock lang="ts" code='console.log("你好，世界")' />
+
+![测试](/banner.png)
+
+<Tabs items={['Javascript', 'Rust', 'C++']}>
+  <Tab value="Javascript">Javascript 很奇怪</Tab>
+  <Tab value="Rust">Rust 很快</Tab>
+  <Tab id="tab-cpp" value="C++">
+    `你好，世界`
+  </Tab>
+</Tabs>
+
+### 数学
+
+行内: $$c = \pm\sqrt{a^2 + b^2}$$
+
+```math
+c = \pm\sqrt{a^2 + b^2}
+```
+
+### Mermaid
+
+<Mermaid
+  chart="
+graph TD;
+subgraph AA [消费者]
+A[移动应用];
+B[Web应用];
+C[Node.js客户端];
+end
+subgraph BB [服务]
+E[REST API];
+F[GraphQL API];
+G[SOAP API];
+end
+Z[GraphQL API];
+A --> Z;
+B --> Z;
+C --> Z;
+Z --> E;
+Z --> F;
+Z --> G;"
+/>

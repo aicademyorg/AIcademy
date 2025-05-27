@@ -10,12 +10,20 @@ import {
 import Link from "fumadocs-core/link";
 import Image from "next/image";
 import Preview from "@/public/banner.png";
-import { Book, ComponentIcon, Pencil, PlusIcon, Server } from "lucide-react";
+import { Language } from "@/lib/i18n";
+import { Book, ComponentIcon, Server } from "lucide-react";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default async function Layout({
+  params,
+  children,
+}: {
+  params: Promise<{ lang: Language }>;
+  children: ReactNode;
+}) {
+  const { lang } = await params;
   return (
     <HomeLayout
-      {...baseOptions}
+      {...baseOptions(lang)}
       links={[
         {
           type: "menu",
@@ -81,24 +89,6 @@ export default function Layout({ children }: { children: ReactNode }) {
                   <p className="text-fd-muted-foreground text-sm">
                     Learn Deep Learning
                   </p>
-                </NavbarMenuLink>
-
-                <NavbarMenuLink
-                  href="/docs/ui/markdown"
-                  className="lg:col-start-3 lg:row-start-1"
-                >
-                  <Pencil className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
-                  <p className="font-medium">Bash 101</p>
-                  <p className="text-fd-muted-foreground text-sm">Learn Bash</p>
-                </NavbarMenuLink>
-
-                <NavbarMenuLink
-                  href="/docs/ui/manual-installation"
-                  className="lg:col-start-3 lg:row-start-2"
-                >
-                  <PlusIcon className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
-                  <p className="font-medium">LLMs 101</p>
-                  <p className="text-fd-muted-foreground text-sm">Learn LLMs</p>
                 </NavbarMenuLink>
               </NavbarMenuContent>
             </NavbarMenu>
