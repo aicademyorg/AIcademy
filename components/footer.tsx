@@ -23,7 +23,7 @@ export const Footer = (): React.ReactElement => {
   ];
 
   return (
-    <footer className="mt-auto border-t bg-fd-card py-13 text-fd-secondary-foreground">
+    <footer className="mt-auto border-t bg-fd-card py-12 text-fd-secondary-foreground">
       <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between md:px-18">
         <div className="flex items-center gap-2">
           <Image
