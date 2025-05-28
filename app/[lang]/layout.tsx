@@ -94,8 +94,8 @@ const locales = [
   { name: "English", locale: "en" },
   { name: "中文", locale: "cn" },
   { name: "日本語", locale: "ja" },
-  { name: "Русский", locale: "ru" },
   { name: "Français", locale: "fr" },
+  { name: "Русский", locale: "ru" },
 ];
 
 export default async function RootLayout({
