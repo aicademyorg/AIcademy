@@ -5,7 +5,7 @@ import { AlbumIcon } from "lucide-react";
 import Image from "next/image";
 import DarkLogo from "@/public/logo-dark.png";
 import LightLogo from "@/public/logo-light.png";
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { SiDiscord, SiGithub } from "react-icons/si";
 
 export const linkItems: LinkItemType[] = [
   {
@@ -21,13 +21,13 @@ export const linkItems: LinkItemType[] = [
   },
   {
     type: "icon",
-    icon: <FaGithub />,
+    icon: <SiGithub />,
     text: "Github",
     url: "https://github.com/aicademyorg/AIcademy",
   },
   {
     type: "icon",
-    icon: <FaDiscord />,
+    icon: <SiDiscord />,
     text: "Discord",
     url: "https://discord.com/invite/bxnwugmNZg",
   },

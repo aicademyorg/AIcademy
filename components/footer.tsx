@@ -1,12 +1,12 @@
 import Image from "next/image";
 import {
-  FaDiscord,
-  FaGithub,
-  FaYoutube,
-  FaInstagram,
-  FaDiscourse,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+  SiDiscord,
+  SiGithub,
+  SiX,
+  SiYoutube,
+  SiInstagram,
+  SiDiscourse,
+} from "react-icons/si";
 import DarkLogo from "@/public/logo-dark.png";
 import LightLogo from "@/public/logo-light.png";
 
@@ -14,12 +14,12 @@ const YEAR = new Date().getFullYear();
 
 export const Footer = (): React.ReactElement => {
   const socialLinks = [
-    { href: "https://github.com/aicademyorg", icon: FaGithub, label: "GitHub" },
-    { href: "https://discord.com/invite/bxnwugmNZg", icon: FaDiscord, label: "Discord" },
-    { href: "https://twitter.com/aicademyorg", icon: FaXTwitter, label: "Twitter" },
-    { href: "https://www.youtube.com/@aicademyorg", icon: FaYoutube, label: "YouTube" },
-    { href: "https://www.instagram.com/aicademyorg", icon: FaInstagram, label: "Instagram" },
-    { href: "#", icon: FaDiscourse, label: "Discourse" },
+    { href: "https://github.com/aicademyorg", icon: SiGithub, label: "GitHub" },
+    { href: "https://discord.com/invite/bxnwugmNZg", icon: SiDiscord, label: "Discord" },
+    { href: "https://twitter.com/aicademyorg", icon: SiX, label: "Twitter" },
+    { href: "https://www.youtube.com/@aicademyorg", icon: SiYoutube, label: "YouTube" },
+    { href: "https://www.instagram.com/aicademyorg", icon: SiInstagram, label: "Instagram" },
+    { href: "#", icon: SiDiscourse, label: "Discourse" },
   ];
 
   return (
@@ -53,7 +53,7 @@ export const Footer = (): React.ReactElement => {
               aria-label={label}
               className="text-[#757575] dark:text-[#989898] hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              <Icon className="h-[18px] w-[18px]" />
+              <Icon className="h-[17px] w-[17px]" />
             </a>
           ))}
         </div>
