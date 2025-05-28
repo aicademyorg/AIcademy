@@ -63,7 +63,7 @@ export default async function Page(props: {
           })}
         />
       </DocsBody>
-      <Rate onRateAction={onRateAction} />
+      <Rate onRateAction={onRateAction} lang={lang} />
     </DocsPage>
   );
 }

@@ -9,6 +9,7 @@ import {
 } from "fumadocs-ui/components/ui/collapsible";
 import { cva } from "class-variance-authority";
 import { usePathname } from "next/navigation";
+import { uiDictionary } from "@/lib/i18n";
 
 const rateButtonVariants = cva(
   "inline-flex items-center gap-2 px-3 py-2 rounded-full font-medium border text-sm [&_svg]:size-4 disabled:cursor-not-allowed",
@@ -43,13 +44,18 @@ function set(url: string, feedback: Feedback | null) {
 
 export function Rate({
   onRateAction,
+  lang = "en",
 }: {
   onRateAction: (url: string, feedback: Feedback) => Promise<void>;
+  lang?: string;
 }) {
   const url = usePathname();
   const [previous, setPrevious] = useState<Feedback | null>(null);
   const [opinion, setOpinion] = useState<"good" | "bad" | null>(null);
   const [message, setMessage] = useState("");
+  const t =
+    uiDictionary[lang as keyof typeof uiDictionary]?.feedback ||
+    uiDictionary.en.feedback;
 
   useEffect(() => {
     setPrevious(get(url));
@@ -81,7 +87,7 @@ export function Rate({
       className="border-y py-3"
     >
       <div className="flex flex-row items-center gap-2">
-        <p className="text-sm font-medium pe-2">Was this helpful?</p>
+        <p className="text-sm font-medium pe-2">{t.wasHelpful}</p>
         <button
           disabled={previous !== null}
           className={cn(
@@ -94,7 +100,7 @@ export function Rate({
           }}
         >
           <ThumbsUp />
-          Good
+          {t.good}
         </button>
         <button
           disabled={previous !== null}
@@ -108,13 +114,13 @@ export function Rate({
           }}
         >
           <ThumbsDown />
-          Bad
+          {t.bad}
         </button>
       </div>
       <CollapsibleContent className="mt-3">
         {previous ? (
           <div className="px-3 py-6 flex flex-col items-center gap-3 bg-fd-card text-fd-card-foreground text-sm text-center rounded-xl text-fd-muted-foreground">
-            <p>Thank you for your feedback!</p>
+            <p>{t.thankYou}</p>
             <button
               className={cn(
                 buttonVariants({
@@ -128,7 +134,7 @@ export function Rate({
                 setPrevious(null);
               }}
             >
-              Submit Again?
+              {t.submitAgain}
             </button>
           </div>
         ) : (
@@ -138,7 +144,7 @@ export function Rate({
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className="border rounded-lg bg-fd-secondary text-fd-secondary-foreground p-3 resize-none focus-visible:outline-none placeholder:text-fd-muted-foreground"
-              placeholder="Leave your feedback..."
+              placeholder={t.placeholder}
               onKeyDown={(e) => {
                 if (!e.shiftKey && e.key === "Enter") {
                   submit(e);
@@ -149,7 +155,7 @@ export function Rate({
               type="submit"
               className={cn(buttonVariants({ color: "outline" }), "w-fit px-3")}
             >
-              Submit
+              {t.submit}
             </button>
           </form>
         )}

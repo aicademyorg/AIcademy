@@ -13,7 +13,32 @@ export function localizeUrl(url: string, lang: Language): string {
   return lang === i18n.defaultLanguage ? url : `/${lang}${url}`;
 }
 
-export const uiDictionary = {
+interface FeedbackTranslations {
+  wasHelpful: string;
+  good: string;
+  bad: string;
+  thankYou: string;
+  submitAgain: string;
+  placeholder: string;
+  submit: string;
+}
+
+interface UIDictionary {
+  metadata: {
+    titleTemplate: string;
+    defaultTitle: string;
+    description: string;
+  };
+  nav: {
+    navigation: Array<{
+      name: string;
+      href: string;
+    }>;
+  };
+  feedback: FeedbackTranslations;
+}
+
+export const uiDictionary: Record<Language, UIDictionary> = {
   en: {
     metadata: {
       titleTemplate: "%s | AIcademy",
@@ -26,6 +51,15 @@ export const uiDictionary = {
         { name: "Blog", href: "/blog" },
         { name: "About", href: "/about" },
       ],
+    },
+    feedback: {
+      wasHelpful: "Was this helpful?",
+      good: "Good",
+      bad: "Bad",
+      thankYou: "Thank you for your feedback!",
+      submitAgain: "Submit Again?",
+      placeholder: "Leave your feedback...",
+      submit: "Submit",
     },
   },
   cn: {
@@ -41,6 +75,15 @@ export const uiDictionary = {
         { name: "关于", href: "/cn/about" },
       ],
     },
+    feedback: {
+      wasHelpful: "这个对你有帮助吗？",
+      good: "满意",
+      bad: "不满意",
+      thankYou: "感谢您的反馈！",
+      submitAgain: "再次提交？",
+      placeholder: "请留下您的反馈……",
+      submit: "提交",
+    },
   },
   ja: {
     metadata: {
@@ -55,6 +98,15 @@ export const uiDictionary = {
         { name: "について", href: "/ja/about" },
       ],
     },
+    feedback: {
+      wasHelpful: "これは役に立ちましたか？",
+      good: "良い",
+      bad: "悪い",
+      thankYou: "ご意見ありがとうございます！",
+      submitAgain: "再度送信しますか？",
+      placeholder: "ご意見をお書きください…",
+      submit: "送信",
+    },
   },
   ko: {
     metadata: {
@@ -68,6 +120,15 @@ export const uiDictionary = {
         { name: "블로그", href: "/ko/blog" },
         { name: "关于", href: "/ko/about" },
       ],
+    },
+    feedback: {
+      wasHelpful: "도움이 되었나요?",
+      good: "좋아요",
+      bad: "나빠요",
+      thankYou: "피드백 감사합니다!",
+      submitAgain: "다시 제출하시겠습니까?",
+      placeholder: "피드백을 남겨주세요...",
+      submit: "제출",
     },
   },
   ru: {
@@ -84,6 +145,15 @@ export const uiDictionary = {
         { name: "О нас", href: "/ru/about" },
       ],
     },
+    feedback: {
+      wasHelpful: "Это было полезно?",
+      good: "Хорошо",
+      bad: "Плохо",
+      thankYou: "Спасибо за ваш отзыв!",
+      submitAgain: "Отправить ещё раз?",
+      placeholder: "Оставьте свой отзыв...",
+      submit: "Отправить",
+    },
   },
   es: {
     metadata: {
@@ -97,6 +167,15 @@ export const uiDictionary = {
         { name: "Blog", href: "/es/blog" },
         { name: "Acerca de", href: "/es/about" },
       ],
+    },
+    feedback: {
+      wasHelpful: "¿Esto fue útil?",
+      good: "Bueno",
+      bad: "Malo",
+      thankYou: "¡Gracias por tus comentarios!",
+      submitAgain: "¿Enviar de nuevo?",
+      placeholder: "Deja tus comentarios...",
+      submit: "Enviar",
     },
   },
   fr: {
@@ -112,6 +191,15 @@ export const uiDictionary = {
         { name: "Blog", href: "/fr/blog" },
         { name: "À propos", href: "/fr/about" },
       ],
+    },
+    feedback: {
+      wasHelpful: "Est-ce que cela a été utile ?",
+      good: "Bien",
+      bad: "Mal",
+      thankYou: "Merci pour votre retour !",
+      submitAgain: "Envoyer à nouveau ?",
+      placeholder: "Laissez vos commentaires...",
+      submit: "Envoyer",
     },
   },
 };
