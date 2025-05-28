@@ -11,6 +11,7 @@ import { getMDXComponents } from "@/mdx-components";
 import { getGithubLastEdit } from "fumadocs-core/server";
 import { Rate } from "@/components/rate";
 import { onRateAction } from "@/lib/github";
+import { i18n } from "@/lib/i18n";
 
 export default async function Page(props: {
   params: Promise<{ lang: string; slug?: string[] }>;
@@ -20,8 +21,14 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const MDXContent = page.data.body;
+
+  const contentPath =
+    lang === i18n.defaultLanguage
+      ? `content/docs/${page.file.path}`
+      : `content/docs/${page.file.path.replace(/\.mdx$/, `.${lang}.mdx`)}`;
+
   const lastEdit = await getGithubLastEdit({
-    path: `content/docs/${page.file.path}`,
+    path: contentPath,
     owner: "aicademyorg",
     repo: "aicademy",
     token: process.env.GITHUB_TOKEN,
@@ -40,7 +47,7 @@ export default async function Page(props: {
         sha: "main",
         owner: "aicademyorg",
         repo: "aicademy",
-        path: `content/docs/${page.file.path}`,
+        path: contentPath,
       }}
       article={{
         className: "max-sm:pb-16",
