@@ -64,19 +64,6 @@ const ja: Partial<Translations> = {
   editOnGithub: "GitHubで編集",
 };
 
-const ko: Partial<Translations> = {
-  search: "검색",
-  searchNoResult: "결과를 찾을 수 없습니다",
-  toc: "목차",
-  tocNoHeadings: "목차가 없습니다",
-  lastUpdate: "최근 업데이트",
-  chooseLanguage: "언어 선택",
-  nextPage: "다음 페이지",
-  previousPage: "이전 페이지",
-  chooseTheme: "테마 선택",
-  editOnGithub: "GitHub에서 편집",
-};
-
 const ru: Partial<Translations> = {
   search: "поиск",
   searchNoResult: "результатов не найдено",
@@ -88,19 +75,6 @@ const ru: Partial<Translations> = {
   previousPage: "предыдущая страница",
   chooseTheme: "выбор темы",
   editOnGithub: "редактировать на GitHub",
-};
-
-const es: Partial<Translations> = {
-  search: "buscar",
-  searchNoResult: "no se encontraron resultados",
-  toc: "índice",
-  tocNoHeadings: "no hay índice",
-  lastUpdate: "última actualización",
-  chooseLanguage: "seleccionar idioma",
-  nextPage: "siguiente página",
-  previousPage: "página anterior",
-  chooseTheme: "seleccionar tema",
-  editOnGithub: "editar en GitHub",
 };
 
 const fr: Partial<Translations> = {
@@ -120,9 +94,7 @@ const locales = [
   { name: "English", locale: "en" },
   { name: "中文", locale: "cn" },
   { name: "日本語", locale: "ja" },
-  { name: "한국어", locale: "ko" },
   { name: "Русский", locale: "ru" },
-  { name: "Español", locale: "es" },
   { name: "Français", locale: "fr" },
 ];
 
@@ -152,7 +124,7 @@ export default async function RootLayout({
           i18n={{
             locale: lang,
             locales,
-            translations: { cn, ja, ko, ru, es, fr }[lang],
+            translations: { cn, ja, ru, fr }[lang],
           }}
         >
           {children}

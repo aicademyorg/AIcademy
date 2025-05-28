@@ -1,6 +1,6 @@
 import type { I18nConfig } from "fumadocs-core/i18n";
 
-export const languages = ["en", "cn", "ja", "ko", "ru", "es", "fr"] as const;
+export const languages = ["en", "cn", "ja", "ru", "fr"] as const;
 export type Language = (typeof languages)[number];
 
 export const i18n: I18nConfig = {
@@ -108,29 +108,6 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       submit: "送信",
     },
   },
-  ko: {
-    metadata: {
-      titleTemplate: "%s | AIcademy",
-      defaultTitle: "AIcademy - 무료 AI 교육",
-      description: "무료 AI 교육을 제공하는 친화적인 커뮤니티",
-    },
-    nav: {
-      navigation: [
-        { name: "코스", href: "/ko/courses" },
-        { name: "블로그", href: "/ko/blog" },
-        { name: "关于", href: "/ko/about" },
-      ],
-    },
-    feedback: {
-      wasHelpful: "도움이 되었나요?",
-      good: "좋아요",
-      bad: "나빠요",
-      thankYou: "피드백 감사합니다!",
-      submitAgain: "다시 제출하시겠습니까?",
-      placeholder: "피드백을 남겨주세요...",
-      submit: "제출",
-    },
-  },
   ru: {
     metadata: {
       titleTemplate: "%s | AIcademy",
@@ -153,29 +130,6 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       submitAgain: "Отправить ещё раз?",
       placeholder: "Оставьте свой отзыв...",
       submit: "Отправить",
-    },
-  },
-  es: {
-    metadata: {
-      titleTemplate: "%s | AIcademy",
-      defaultTitle: "AIcademy - Educación de IA gratuita",
-      description: "Una comunidad amigable que ofrece educación de IA gratuita",
-    },
-    nav: {
-      navigation: [
-        { name: "Cursos", href: "/es/courses" },
-        { name: "Blog", href: "/es/blog" },
-        { name: "Acerca de", href: "/es/about" },
-      ],
-    },
-    feedback: {
-      wasHelpful: "¿Esto fue útil?",
-      good: "Bueno",
-      bad: "Malo",
-      thankYou: "¡Gracias por tus comentarios!",
-      submitAgain: "¿Enviar de nuevo?",
-      placeholder: "Deja tus comentarios...",
-      submit: "Enviar",
     },
   },
   fr: {
