@@ -9,9 +9,9 @@ import {
 } from "fumadocs-ui/layouts/home/navbar";
 import Link from "fumadocs-core/link";
 import Image from "next/image";
-import Preview from "@/public/banner.png";
+import Preview from "@/public/python/python-banner.png";
 import { Language } from "@/lib/i18n";
-import { Book, ComponentIcon, Server } from "lucide-react";
+import { Code } from "lucide-react";
 
 export default async function Layout({
   params,
@@ -26,29 +26,12 @@ export default async function Layout({
       {...baseOptions(lang)}
       links={[
         {
-          type: "menu",
-          on: "menu",
-          text: "Courses",
-          items: [
-            {
-              text: "Getting Started",
-              url: "/docs/ui",
-              icon: <Book />,
-            },
-            {
-              text: "Components",
-              url: "/docs/ui/components",
-              icon: <ComponentIcon />,
-            },
-          ],
-        },
-        {
           type: "custom",
           on: "nav",
           children: (
             <NavbarMenu>
               <NavbarMenuTrigger>
-                <Link href="/docs/python">Courses</Link>
+                <Link href="/docs/python">Learn</Link>
               </NavbarMenuTrigger>
               <NavbarMenuContent className="text-[15px]">
                 <NavbarMenuLink href="/docs/python" className="md:row-span-2">
@@ -63,36 +46,55 @@ export default async function Layout({
                       }}
                     />
                   </div>
-                  <p className="font-medium">Python 101</p>
+                  <p className="font-medium">Python</p>
                   <p className="text-fd-muted-foreground text-sm">
-                    Learn Python
+                    Learn Python for Data Science
                   </p>
                 </NavbarMenuLink>
 
-                <NavbarMenuLink
-                  href="/docs/ui/components"
-                  className="lg:col-start-2"
-                >
-                  <ComponentIcon className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
-                  <p className="font-medium">Pytorch 101</p>
+                <NavbarMenuLink href="/docs/pytorch" className="lg:col-start-2">
+                  <Code className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
+                  <p className="font-medium">Pytorch</p>
                   <p className="text-fd-muted-foreground text-sm">
                     Learn Pytorch
                   </p>
                 </NavbarMenuLink>
 
                 <NavbarMenuLink
-                  href="/docs/ui/openapi"
+                  href="/docs/deeplearning"
                   className="lg:col-start-2"
                 >
-                  <Server className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
-                  <p className="font-medium">Deep Learning 101</p>
+                  <Code className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
+                  <p className="font-medium">Deep Learning</p>
                   <p className="text-fd-muted-foreground text-sm">
                     Learn Deep Learning
+                  </p>
+                </NavbarMenuLink>
+
+                <NavbarMenuLink
+                  href="/docs/ml"
+                  className="lg:col-start-3 lg:row-start-1"
+                >
+                  <Code className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
+                  <p className="font-medium">Machine Learning</p>
+                  <p className="text-fd-muted-foreground text-sm">
+                    Learn machine learning
                   </p>
                 </NavbarMenuLink>
               </NavbarMenuContent>
             </NavbarMenu>
           ),
+        },
+        {
+          icon: <Code />,
+          text: "Blog",
+          url: "/blog",
+          active: "nested-url",
+        },
+        {
+          icon: <Code />,
+          text: "About",
+          url: "/about",
         },
         ...linkItems,
       ]}

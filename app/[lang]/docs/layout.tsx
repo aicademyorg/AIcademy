@@ -7,7 +7,7 @@ import { Language } from "@/lib/i18n";
 const docsOptions: DocsLayoutProps = {
   ...baseOptions,
   tree: source.pageTree as any,
-  links: [linkItems[linkItems.length - 1]],
+  links: linkItems,
   sidebar: {
     tabs: {
       transform(option, node) {

@@ -1,24 +1,12 @@
 import { type LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import { i18n, Language, localizeUrl, uiDictionary } from "@/lib/i18n";
-import { AlbumIcon } from "lucide-react";
 import Image from "next/image";
 import DarkLogo from "@/public/logo-dark.png";
 import LightLogo from "@/public/logo-light.png";
 import { SiDiscord, SiGithub } from "react-icons/si";
 
 export const linkItems: LinkItemType[] = [
-  {
-    icon: <AlbumIcon />,
-    text: "Blog",
-    url: "/blog",
-    active: "nested-url",
-  },
-  {
-    icon: <AlbumIcon />,
-    text: "About",
-    url: "/about",
-  },
   {
     type: "icon",
     icon: <SiGithub />,
