@@ -1,62 +1,79 @@
 ---
-title: Hello World
-description: Your first document
-icon: Code 
+title: Python
+description: Python for Data Science
+icon: Code
 ---
 
-import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { SiNumpy, SiPandas, SiPython } from "react-icons/si";
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+Welcome to the **Python for Data Science** course!
+This course will teach you Python and key libraries for data science, from basics to advanced.
 
-## What is Next?
+This is a hands-on course where you'll learn by solving Python problems. At the end of each module, you'll find exercises to help reinforce and apply what you've learned.
+
+## What you'll learn
+
+You’ll begin with Python basics and then learn key libraries for data science.
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.vercel.app" />
+
+<Card icon={<SiPython className="text-purple-300" />} title='Python' href="#">
+
+A powerful and versatile programming language widely used in machine learning.
+
+</Card>
+
+<Card icon={<SiNumpy className="text-blue-300" />} title='NumPy' href="#">
+
+A library for fast numerical computations and working with arrays.
+
+</Card>
+
+<Card icon={<SiPandas />} title='Pandas'  href="#">
+
+A tool for data manipulation and analysis using DataFrames.
+
+</Card>
+
+<Card icon={<SiPandas />} title='Matplotlib'  href="#">
+
+A library for creating static, interactive, and animated visualizations.
+
+</Card>
+
 </Cards>
 
-### Codeblock
+By the end, you’ll have a solid foundation to explore, analyze, and work with data.
 
-<DynamicCodeBlock lang="ts" code='console.log("Hello World")' />
+## Getting Help
 
-![Test](/banner.png)
+If you need help or have questions, feel free to ask on our [Discord](https://discord.com/invite/bxnwugmNZg) server. 
 
-<Tabs items={['Javascript', 'Rust', 'C++']}>
-  <Tab value="Javascript">Javascript is weird</Tab>
-  <Tab value="Rust">Rust is fast</Tab>
-  <Tab id="tab-cpp" value="C++">
-    `Hello World`
-  </Tab>
-</Tabs>
+## FAQ
 
-### Math
+Some answers to frequently asked questions.
 
-Inline: $$c = \pm\sqrt{a^2 + b^2}$$
+<Accordions>
+  <Accordion title="Who is this course for?">
+    This course is for anyone curious about AI and programming with Python, from
+    complete beginners to professionals seeking to boost productivity.
+  </Accordion>
+  <Accordion title="Do I need prior coding experience?">
+    No prior coding experience is required. This course is designed to be
+    accessible to complete beginners while also providing valuable insights for
+    those with some coding background.
+  </Accordion>
+  <Accordion title="Do I need to take the courses in a specific order?">
+    We recommend taking the courses in the prescribed order for a logical and
+    consistent learning experience.
+  </Accordion>
+  <Accordion title="What kind of support will I have during the course?">
+    You will have access to a community of learners and professionals, as well
+    as continuous guidance and feedback from your AI companions.
+  </Accordion>
+</Accordions>
 
-```math
-c = \pm\sqrt{a^2 + b^2}
-```
+## Let’s go
 
-### Mermaid
-
-<Mermaid
-  chart="
-graph TD;
-subgraph AA [Consumers]
-A[Mobile app];
-B[Web app];
-C[Node.js client];
-end
-subgraph BB [Services]
-E[REST API];
-F[GraphQL API];
-G[SOAP API];
-end
-Z[GraphQL API];
-A --> Z;
-B --> Z;
-C --> Z;
-Z --> E;
-Z --> F;
-Z --> G;"
-/>
+Let's get started by [setting up](/docs/python/setup) your Python environment.
