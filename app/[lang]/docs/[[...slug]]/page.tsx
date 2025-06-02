@@ -63,7 +63,9 @@ export default async function Page(props: {
           })}
         />
       </DocsBody>
-      <Rate onRateAction={onRateAction} lang={lang} />
+      <div className="-mb-8">
+        <Rate onRateAction={onRateAction} lang={lang} />
+      </div>
     </DocsPage>
   );
 }
