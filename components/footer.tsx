@@ -15,10 +15,22 @@ const YEAR = new Date().getFullYear();
 export const Footer = (): React.ReactElement => {
   const socialLinks = [
     { href: "https://github.com/aicademyorg", icon: SiGithub, label: "GitHub" },
-    { href: "https://discord.com/invite/bxnwugmNZg", icon: SiDiscord, label: "Discord" },
+    {
+      href: "https://discord.com/invite/bxnwugmNZg",
+      icon: SiDiscord,
+      label: "Discord",
+    },
     { href: "https://twitter.com/aicademyorg", icon: SiX, label: "Twitter" },
-    { href: "https://www.youtube.com/@aicademyorg", icon: SiYoutube, label: "YouTube" },
-    { href: "https://www.instagram.com/aicademyorg", icon: SiInstagram, label: "Instagram" },
+    {
+      href: "https://www.youtube.com/@aicademyorg",
+      icon: SiYoutube,
+      label: "YouTube",
+    },
+    {
+      href: "https://www.instagram.com/aicademyorg",
+      icon: SiInstagram,
+      label: "Instagram",
+    },
     { href: "#", icon: SiDiscourse, label: "Discourse" },
   ];
 
@@ -28,17 +40,17 @@ export const Footer = (): React.ReactElement => {
         <div className="flex items-center gap-2">
           <Image
             src={LightLogo}
-            className="dark:hidden w-5 md:w-[18px]"
+            className="dark:hidden w-5 md:w-5"
             alt="AIcademy Logo"
           />
           <Image
             src={DarkLogo}
-            className="hidden dark:flex w-5 md:w-[18px]"
+            className="hidden dark:flex w-5 md:w-5"
             alt="AIcademy Logo"
           />
-          <p className="text-sm font-medium">
+          <p className="text-[15px] font-medium">
             AIcademy{" "}
-            <span className="text-xs font-normal text-[#757575] dark:text-[#989898] pl-[3px]">
+            <span className="text-[13px] font-normal text-[#757575] dark:text-[#989898] pl-[3px]">
               &copy; {YEAR}
             </span>
           </p>
