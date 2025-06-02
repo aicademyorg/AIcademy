@@ -4,7 +4,6 @@ import { RootProvider } from "fumadocs-ui/provider";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { baseUrl, createMetadata } from "@/lib/metadata";
-import { Footer } from "@/components/footer";
 import { Translations } from "fumadocs-ui/contexts/i18n";
 import { Language, uiDictionary } from "@/lib/i18n";
 import { Metadata } from "next";
@@ -128,7 +127,6 @@ export default async function RootLayout({
           }}
         >
           {children}
-          <Footer />
         </RootProvider>
       </body>
     </html>
