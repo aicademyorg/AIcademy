@@ -10,7 +10,7 @@ import {
 import { Footer } from "@/components/footer";
 import Link from "fumadocs-core/link";
 import Image from "next/image";
-import Preview from "@/public/python/python-banner.png";
+import Preview from "@/public/learn/python/banner.png";
 import { Language } from "@/lib/i18n";
 import { Code } from "lucide-react";
 
