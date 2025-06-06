@@ -8,10 +8,23 @@ import {
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
-import { getGithubLastEdit } from "fumadocs-core/server";
+import { getGithubLastEdit, getPageTreePeers } from "fumadocs-core/server";
 import { Rate } from "@/components/rate";
 import { onRateAction } from "@/lib/github";
 import { i18n } from "@/lib/i18n";
+import { Card, Cards } from "fumadocs-ui/components/card";
+
+function DocsCategory({ url, lang }: { url: string; lang: string }) {
+  return (
+    <Cards>
+      {getPageTreePeers(source.pageTree[lang], url).map((peer) => (
+        <Card key={peer.url} title={peer.name} href={peer.url}>
+          {peer.description}
+        </Card>
+      ))}
+    </Cards>
+  );
+}
 
 export default async function Page(props: {
   params: Promise<{ lang: string; slug?: string[] }>;
@@ -58,10 +71,13 @@ export default async function Page(props: {
       <DocsBody>
         <MDXContent
           components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
+            DocsCategory: ({ url }) => {
+              return <DocsCategory url={url ?? page.url} lang={lang} />;
+            },
           })}
         />
+        {page.data.index && <DocsCategory url={page.url} lang={lang} />}
       </DocsBody>
       <div className="-mb-6">
         <Rate onRateAction={onRateAction} lang={lang} />
