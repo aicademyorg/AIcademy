@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "hello-world",
+    "data-types",
+    "control-flow",
+    "functions",
+    "file-handling",
+    "oop",
+    "error-handling",
+    "intermediate-python"
+  ]
+}

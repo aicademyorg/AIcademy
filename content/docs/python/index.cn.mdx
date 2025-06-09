@@ -1,45 +1,75 @@
 ---
-title: 你好，世界
-description: 你的第一个文档
-icon: Code 
+title: 欢迎
+description: 学习数据科学的Python
+icon: Book
 ---
 
-1. Introduction
-Description:
-Learn how to install Python, write your first program, and use the Python interpreter.
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
+import { SiNumpy, SiPandas, SiPython } from "react-icons/si";
 
-2. Data Types
-Description:
-Work with numbers, strings, booleans, lists, tuples, dictionaries, and sets.
+欢迎来到**数据科学Python**课程！
+本课程将教你Python和数据科学的关键库，从基础到高级。
 
-3. Control Flow
-Description:
-Use if, else, elif, loops, break, continue, and nested logic.
+这是一个实践性强的课程，你将通过解决Python问题来学习。在每个模块的结尾，你将找到练习来帮助你巩固和应用所学的知识。
 
-4. Functions
-Description:
-Create functions with arguments, return values, default and variable arguments.
+## 你将学到什么
 
-5. File Handling
-Description:
-Read from and write to files using different modes and the with statement.
+你将从Python基础开始，然后学习数据科学的关键库。
 
-6. Object-Oriented Programming (OOP)
-Description:
-Learn classes, objects, inheritance, encapsulation, and special methods.
+<Cards>
 
-7. Error Handling
-Description:
-Handle errors using try, except, finally, and create custom exceptions.
+<Card icon={<SiPython className="text-purple-300" />} title='Python' href="#">
 
-8. Intermediate Python
-Description:
-Explore list comprehensions, lambdas, higher-order functions, and unpacking.
+一种功能强大且多样化的编程语言，广泛应用于机器学习。
 
-9. Advanced Python
-Description:
-Work with decorators, generators, iterators, context managers, and type hints.
+</Card>
 
-10. Final Projects
-Description:
-Build small real-world projects using all the concepts learned in this course.
+<Card icon={<SiNumpy className="text-blue-300" />} title='NumPy' href="#">
+
+一个用于快速数值计算和数组操作的库。
+
+</Card>
+
+<Card icon={<SiPandas />} title='Pandas'  href="#">
+
+一个用于数据操作和分析的工具，使用DataFrame。
+
+</Card>
+
+<Card icon={<SiPandas />} title='Matplotlib'  href="#">
+
+一个用于创建静态、交互式和动画化可视化的库。
+
+</Card>
+
+</Cards>
+
+到最后，你将拥有一个坚实的基础来探索、分析和处理数据。
+
+## 获取帮助
+
+如果你需要帮助或有问题，请随时在我们的[Discord](https://discord.com/invite/bxnwugmNZg)服务器上问。
+
+## FAQ
+
+一些常见问题的答案。
+
+<Accordions>
+  <Accordion title="这门课程适合谁？">
+    这门课程适合任何对AI和Python编程感兴趣的人，从
+    完全的初学者到寻求提高生产力的专业人士。
+  </Accordion>
+  <Accordion title="我需要有编程经验吗？">
+    不需要任何编程经验。这门课程旨在让完全的初学者也能访问，同时也为有一些编程背景的人提供有价值的见解。
+  </Accordion>
+  <Accordion title="我需要按照特定的顺序完成课程吗？">
+    我们建议按照指定的顺序完成课程，以获得逻辑一致的学习体验。
+  </Accordion>
+  <Accordion title="在课程期间我将有什么样的支持？">
+    你将有一个学习者和专业人士的社区，以及来自AI伴侣的持续指导和反馈。
+  </Accordion>
+</Accordions>
+
+## 让我们开始
+
+让我们开始设置你的Python环境。

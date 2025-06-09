@@ -1,0 +1,72 @@
+---
+title: Hello, World!
+description: Learn Python syntax and interpreter
+---
+
+## Python Syntax
+
+Python has a clean and straightforward syntax, making it easy to read and write code. It promotes writing code without unnecessary boilerplate. 
+
+The basic "`print`" command in Python outputs a line, including a newline character (unlike in C).
+
+```py filename="hello.py"
+print("Hello, World!")
+```
+
+```sh filename="Output"
+Hello, World!
+```
+
+### Indentation
+
+Python uses indentation to define code blocks instead of curly braces or keywords. Proper indentation is crucial for your code to run correctly.
+
+```py
+x = 7
+if x == 7:
+    print("x equals to 7") # This line is indented
+```
+
+```sh
+x equals to 7
+```
+
+We use `==` to check if two values are equal.
+
+### Comments
+
+You can add comments to your code to explain what it does or provide additional information. Comments are ignored by the compiler, so they don't affect the execution of your code.
+Single-line comments start with a hash symbol (`#`), and multi-line comments are enclosed between triple quotes (`"""` or `'''`).
+
+```py
+# This is a single-line comment
+
+"""
+This is a
+multi-line comment
+"""
+```
+
+## Variable Assignment
+
+Variables in Python are dynamically typed, meaning you don't need to explicitly declare the data type. You can assign values to variables using the assignment operator (`=`).
+
+```py
+x = 10  # Assigning an integer value
+y = 3.14  # Assigning a float value
+name = "Alice"  # Assigning a string value
+is_student = True  # Assigning a boolean value
+```
+
+You can also reassign variables to different values or data types.
+
+```py
+x = 20  # Reassigning x to a new value
+x = "Hello"  # Reassigning x to a string
+
+print(x)
+```
+
+```sh
+Hello
+```
