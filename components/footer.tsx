@@ -71,7 +71,7 @@ export const Footer = (): React.ReactElement => {
               aria-label={label}
               className="text-[#757575] dark:text-[#989898] hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              <Icon className="size-[17px]" />
+              <Icon className="size-4.25" />
             </a>
           ))}
         </div>
