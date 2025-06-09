@@ -53,9 +53,9 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       ],
     },
     feedback: {
-      wasHelpful: "Was this helpful?",
-      good: "Good",
-      bad: "Bad",
+      wasHelpful: "Was this page helpful?",
+      good: "Yes",
+      bad: "No",
       thankYou: "Thank you for your feedback!",
       submitAgain: "Submit Again?",
       placeholder: "Leave your feedback...",
@@ -65,69 +65,70 @@ export const uiDictionary: Record<Language, UIDictionary> = {
   cn: {
     metadata: {
       titleTemplate: "%s | AIcademy",
-      defaultTitle: "AIcademy - 免费人工智能教育",
-      description: "提供免费人工智能教育的友好社区",
+      defaultTitle: "AIcademy - 免费AI教育平台",
+      description: "一个提供免费AI教育的友好社区",
     },
     nav: {
       navigation: [
         { name: "课程", href: "/cn/courses" },
         { name: "博客", href: "/cn/blog" },
-        { name: "关于", href: "/cn/about" },
+        { name: "关于我们", href: "/cn/about" },
       ],
     },
     feedback: {
-      wasHelpful: "这个对你有帮助吗？",
-      good: "满意",
-      bad: "不满意",
+      wasHelpful: "这个页面对您有帮助吗？",
+      good: "有帮助",
+      bad: "没帮助",
       thankYou: "感谢您的反馈！",
-      submitAgain: "再次提交？",
-      placeholder: "请留下您的反馈……",
+      submitAgain: "要再次提交吗？",
+      placeholder: "欢迎留下您的反馈……",
       submit: "提交",
     },
   },
+
   ja: {
     metadata: {
       titleTemplate: "%s | AIcademy",
-      defaultTitle: "AIcademy - 無料のAI教育",
-      description: "無料のAI教育を提供するフレンドリーなコミュニティ",
+      defaultTitle: "AIcademy - 無料で学べるAI教育",
+      description: "誰でも無料で学べる、フレンドリーなAI教育コミュニティ",
     },
     nav: {
       navigation: [
         { name: "コース", href: "/ja/courses" },
         { name: "ブログ", href: "/ja/blog" },
-        { name: "について", href: "/ja/about" },
+        { name: "概要", href: "/ja/about" },
       ],
     },
     feedback: {
-      wasHelpful: "これは役に立ちましたか？",
-      good: "良い",
-      bad: "悪い",
+      wasHelpful: "このページは役に立ちましたか？",
+      good: "はい",
+      bad: "いいえ",
       thankYou: "ご意見ありがとうございます！",
-      submitAgain: "再度送信しますか？",
-      placeholder: "ご意見をお書きください…",
-      submit: "送信",
+      submitAgain: "もう一度送信しますか？",
+      placeholder: "ご意見・ご感想をご記入ください…",
+      submit: "送信する",
     },
   },
   ru: {
     metadata: {
       titleTemplate: "%s | AIcademy",
-      defaultTitle: "AIcademy - бесплатное образование в области AI",
+      defaultTitle: "AIcademy — бесплатное образование в сфере ИИ",
       description:
-        "Дружественная общность, предлагающая бесплатное образование в области AI",
+        "Дружелюбное сообщество, предлагающее бесплатное обучение ИИ",
     },
     nav: {
       navigation: [
         { name: "Курсы", href: "/ru/courses" },
         { name: "Блог", href: "/ru/blog" },
-        { name: "О нас", href: "/ru/about" },
+        { name: "О проекте", href: "/ru/about" },
       ],
     },
     feedback: {
-      wasHelpful: "Это было полезно?",
-      good: "Хорошо",
-      bad: "Плохо",
-      thankYou: "Спасибо за ваш отзыв!",
-      submitAgain: "Отправить ещё раз?",
+      wasHelpful: "Эта страница была полезной?",
+      good: "Да",
+      bad: "Нет",
+      thankYou: "Спасибо за отзыв!",
+      submitAgain: "Отправить снова?",
       placeholder: "Оставьте свой отзыв...",
       submit: "Отправить",
     },
@@ -135,9 +136,9 @@ export const uiDictionary: Record<Language, UIDictionary> = {
   fr: {
     metadata: {
       titleTemplate: "%s | AIcademy",
-      defaultTitle: "AIcademy - Éducation en IA gratuite",
+      defaultTitle: "AIcademy - Éducation gratuite à l'IA",
       description:
-        "Une communauté amicale offrant une éducation en IA gratuite",
+        "Une communauté bienveillante proposant une éducation gratuite à l'IA",
     },
     nav: {
       navigation: [
@@ -147,12 +148,12 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       ],
     },
     feedback: {
-      wasHelpful: "Est-ce que cela a été utile ?",
-      good: "Bien",
-      bad: "Mal",
+      wasHelpful: "Cette page vous a-t-elle été utile ?",
+      good: "Oui",
+      bad: "Non",
       thankYou: "Merci pour votre retour !",
-      submitAgain: "Envoyer à nouveau ?",
-      placeholder: "Laissez vos commentaires...",
+      submitAgain: "Envoyer un autre retour ?",
+      placeholder: "Laissez-nous votre avis...",
       submit: "Envoyer",
     },
   },
