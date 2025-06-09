@@ -30,7 +30,7 @@
     "shiki": "^3.6.0",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.8",
-    "zod": "^3.25.55"
+    "zod": "^3.25.56"
   },
   "devDependencies": {
     "@types/mdx": "^2.0.13",
