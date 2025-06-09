@@ -5,7 +5,8 @@ import {
   SiX,
   SiYoutube,
   SiInstagram,
-  SiDiscourse,
+  SiLinkedin,
+  // SiDiscourse,
 } from "react-icons/si";
 import DarkLogo from "@/public/logo-dark.png";
 import LightLogo from "@/public/logo-light.png";
@@ -14,29 +15,34 @@ const YEAR = new Date().getFullYear();
 
 export const Footer = (): React.ReactElement => {
   const socialLinks = [
-    { href: "https://github.com/aicademyorg", icon: SiGithub, label: "GitHub" },
-    {
-      href: "https://discord.com/invite/bxnwugmNZg",
-      icon: SiDiscord,
-      label: "Discord",
-    },
     { href: "https://twitter.com/aicademyorg", icon: SiX, label: "Twitter" },
     {
       href: "https://www.youtube.com/@aicademyorg",
       icon: SiYoutube,
       label: "YouTube",
     },
+    { href: "https://github.com/aicademyorg", icon: SiGithub, label: "GitHub" },
+    {
+      href: "https://discord.com/invite/bxnwugmNZg",
+      icon: SiDiscord,
+      label: "Discord",
+    },
     {
       href: "https://www.instagram.com/aicademyorg",
       icon: SiInstagram,
       label: "Instagram",
     },
-    { href: "#", icon: SiDiscourse, label: "Discourse" },
+    {
+      href: "https://www.linkedin.com/company/aicademyorg",
+      icon: SiLinkedin,
+      label: "LinkedIn",
+    },
+    // { href: "#", icon: SiDiscourse, label: "Discourse" },
   ];
 
   return (
-    <footer className="mt-auto border-t bg-fd-card py-12 text-fd-secondary-foreground">
-      <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between md:px-18">
+    <footer className="mt-auto border-t bg-fd-card py-16 text-fd-secondary-foreground">
+      <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between md:px-13">
         <div className="flex items-center gap-2">
           <Image
             src={LightLogo}
@@ -55,7 +61,7 @@ export const Footer = (): React.ReactElement => {
             </span>
           </p>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4.5">
           {socialLinks.map(({ href, icon: Icon, label }) => (
             <a
               key={label}
@@ -65,7 +71,7 @@ export const Footer = (): React.ReactElement => {
               aria-label={label}
               className="text-[#757575] dark:text-[#989898] hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              <Icon className="h-[17px] w-[17px]" />
+              <Icon className="size-[17px]" />
             </a>
           ))}
         </div>
