@@ -1,6 +1,6 @@
 import { docs } from "@/.source";
 import { loader } from "fumadocs-core/source";
-import { i18n } from '@/lib/i18n';
+import { i18n } from "@/lib/i18n";
 import { icons } from "lucide-react";
 import { createElement } from "react";
 import * as SiIcons from "react-icons/si";
