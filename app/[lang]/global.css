@@ -3,7 +3,7 @@
 @import "fumadocs-ui/css/preset.css";
 
 :root {
-  --headless-color: hsl(250, 80%, 54%);
+  --purple-color: hsl(250, 80%, 54%);
   --ui-color: hsl(220, 91%, 54%);
   --color-fd-primary: var(--ui-color);
 }
@@ -14,7 +14,7 @@ body {
 }
 
 .dark {
-  --headless-color: hsl(250 100% 80%);
+  --purple-color: hsl(250 100% 80%);
   --ui-color: hsl(217 92% 76%);
   --color-fd-primary: var(--ui-color);
 }
