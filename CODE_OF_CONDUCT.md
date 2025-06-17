@@ -12,6 +12,6 @@ In short: **Be kind**. **No harassment**, **trolling**, or **spamming**.
 
 - **Spamming**: Posting irrelevant links, excessive self-promotion, or repeatedly sharing off-topic content disrupts the learning experience. Keep the space clean and focused.
 
-If you see someone harassing, trolling, or spamming in any part of the AIcademy community (website, GitHub, discussions, discord etc.), please email us at [mailto:hiaicademy@gmail.com](mailto:hiaicademy@gmail.com) — ideally with a screenshot or link to the incident.
+If you see someone harassing, trolling, or spamming in any part of the AIcademy community (website, GitHub, discussions, discord etc.), please email us at [`hiaicademy@gmail.com`](mailto:hiaicademy@gmail.com) — ideally with a screenshot or link to the incident.
 
 The moderator team will take any action we believe necessary to keep AIcademy a safe, respectful space — including content removal or account bans.
