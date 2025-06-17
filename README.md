@@ -20,7 +20,7 @@ The server will be running at [http://localhost:3000](http://localhost:3000).
 
 Contributions are welcome! Whether you're improving content, fixing bugs, or adding new features, your help makes AIcademy better for everyone.
 
-> [Please follow these steps to contribute](blob/main/CONTRIBUTING.md).
+> [Please follow these steps to contribute](/CONTRIBUTING.md).
 
 Recent Contributions:
 
