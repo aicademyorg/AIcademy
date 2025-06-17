@@ -22,9 +22,9 @@ Contributions are welcome! Whether you're improving content, fixing bugs, or add
 
 > [Please follow these steps to contribute](blob/main/CONTRIBUTING.md).
 
-![Alt](https://repobeats.axiom.co/api/embed/d4bca36f7e3aef4a00b262ce58cfba3d4d59575d.svg "Repobeats analytics image")
-
 Recent Contributions:
+
+![Alt](https://repobeats.axiom.co/api/embed/d4bca36f7e3aef4a00b262ce58cfba3d4d59575d.svg "Repobeats analytics image")
 
 ## License
 
