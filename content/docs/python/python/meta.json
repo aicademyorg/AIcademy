@@ -1,12 +1,13 @@
 {
   "pages": [
     "hello-world",
+    "operators",
     "data-types",
     "control-flow",
-    "functions",
+    "data-structures",
     "file-handling",
+    "functions",
     "oop",
-    "error-handling",
-    "intermediate-python"
+    "error-handling"
   ]
 }
