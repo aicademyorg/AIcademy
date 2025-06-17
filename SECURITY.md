@@ -4,7 +4,7 @@ At AIcademy, we take platform security seriously.
 
 While we don’t collect personal data or require sign-ups, we’re committed to keeping our open-source learning environment safe and trustworthy for everyone.
 
-## Reporting a Vulnerability
+### Reporting a Vulnerability
 
 If you discover a security issue in our website or codebase, please report it privately by emailing:
 
