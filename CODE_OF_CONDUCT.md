@@ -1,16 +1,17 @@
 # Code of Conduct
+
 AIcademy is a friendly place to learn about AI. We’re committed to keeping it that way.
 
 By using AIcademy, you agree to follow this Code of Conduct.
 
 In short: **Be kind**. **No harassment**, **trolling**, or **spamming**.
 
-- **Harassment** includes offensive language or imagery, deliberate intimidation, stalking, name-calling, unwanted attention, doxxing, or any behavior that makes others feel unsafe. AIcademy should be a harassment-free experience for everyone, regardless of gender, gender identity or expression, age, sexual orientation, disability, appearance, body size, race, ethnicity, or religion (or lack thereof).
+- **Harassment**: We don’t allow behavior that targets or demeans individuals or groups. This includes offensive comments, unwanted attention, doxxing, stalking, slurs, or anything that makes others feel unsafe — regardless of gender, background, identity, ability, or beliefs.
 
-- **Trolling** includes posting inflammatory, off-topic, or deliberately disruptive messages to provoke others or derail conversations.
+- **Trolling**: Provoking arguments, derailing discussions, or posting deliberately disruptive messages wastes everyone's time. Stay constructive and kind, even when disagreeing.
 
-- **Spamming** includes posting irrelevant or repetitive messages, promoting products or services, unsolicited advertising, or flooding discussions with links or media.
+- **Spamming**: Posting irrelevant links, excessive self-promotion, or repeatedly sharing off-topic content disrupts the learning experience. Keep the space clean and focused.
 
-If you see someone harassing, trolling, or spamming in any part of the AIcademy community (website, GitHub, discussions, discord etc.), please email us at `[mailto:hiaicademy@gmail.com](mailto:hiaicademy@gmail.com)` — ideally with a screenshot or link to the incident.
+If you see someone harassing, trolling, or spamming in any part of the AIcademy community (website, GitHub, discussions, discord etc.), please email us at [mailto:hiaicademy@gmail.com](mailto:hiaicademy@gmail.com) — ideally with a screenshot or link to the incident.
 
 The moderator team will take any action we believe necessary to keep AIcademy a safe, respectful space — including content removal or account bans.
