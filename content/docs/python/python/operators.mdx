@@ -1,18 +1,260 @@
 ---
 title: Operators
-description: Perform calculations and comparisons using Python’s operators.
+description: Calculations and comparisons using operators.
 ---
 
+Operators are symbols used to perform operations on variables and values, such as arithmetic calculations, comparisons, or logical checks.
+
+Let's explore the most commonly used operators in Python:
+
+## Arithmetic Operators
+
+These are used to do basic math operations like addition, subtraction, multiplication and division.
+
+| Operator | Description                  | Syntax   |
+| -------- | ---------------------------- | -------- |
+| `+`      | Addition                     | `x + y`  |
+| `-`      | Subtraction                  | `x - y`  |
+| `*`      | Multiplication               | `x * y`  |
+| `/`      | Division (decimal)           | `x / y`  |
+| `//`     | Floor Division (rounds down) | `x // y` |
+| `%`      | Modulus (remainder)          | `x % y`  |
+| `**`     | Power (exponent)             | `x ** y` |
+
+Example:
+
+```py
+a = 7
+b = 2
+
+print(a + b)   # Addition
+print(a - b)   # Subtraction
+print(a * b)   # Multiplication
+print(a / b)   # Division
+print(a // b)  # Floor Division
+print(a % b)   # Modulus
+print(a ** b)  # Exponent
 ```
-3.1 Arithmetic Operators (+, -, *, /, %, **, //)
 
-3.2 Comparison Operators (==, !=, <, >, <=, >=)
+Output:
 
-3.3 Logical Operators (and, or, not)
+```sh
+9
+5
+14
+3.5
+3
+1
+49
+```
 
-3.4 Bitwise Operators (&, |, ^, ~, <<, >>)
+## Comparison Operators
 
-3.5 Assignment Operators (=, +=, -=, etc.)
+These are used to compare two values. The result is either `True` or `False`.
 
-3.6 Identity & Membership Operators (is, in, not in)
+| Operator | Description              | Syntax   |
+| -------- | ------------------------ | -------- |
+| `>`      | Greater than             | `x > y`  |
+| `<`      | Less than                | `x < y`  |
+| `==`     | Equal to                 | `x == y` |
+| `!=`     | Not equal to             | `x != y` |
+| `>=`     | Greater than or equal to | `x >= y` |
+| `<=`     | Less than or equal to    | `x <= y` |
+
+Example:
+
+```py
+x = 8
+y = 10
+
+print(x > y)   # Greater than
+print(x < y)   # Less than
+print(x == y)  # Equal to
+print(x != y)  # Not equal to
+print(x >= y)  # Greater than or equal to
+print(x <= y)  # Less than or equal to
+```
+
+Output:
+
+```sh
+False
+True
+False
+True
+False
+True
+```
+
+## Logical Operators
+
+These are used to combine multiple conditions.
+
+| Operator | Description                      | Syntax    | Example            |
+| -------- | -------------------------------- | --------- | ------------------ |
+| `and`    | True if both conditions are true | `x and y` | `x > 5 and x < 10` |
+| `or`     | True if at least one is true     | `x or y`  | `x < 5 or x > 15`  |
+| `not`    | Reverses the condition           | `not x`   | `not(x > 5)`       |
+
+Example:
+
+```py
+x = 7
+print(x > 5 and x < 10)  # True
+print(x < 5 or x > 10)   # False
+print(not(x > 5))        # False
+```
+
+Output:
+
+```sh
+True
+False
+False
+```
+
+## Bitwise Operators
+
+Bitwise operators work with binary (0s and 1s). These are advanced but useful for certain tasks.
+
+| Operator | Description         | Syntax   |
+| -------- | ------------------- | -------- |
+| `&`      | Bitwise AND         | `x & y`  |
+| `~`      | Bitwise NOT         | `~x`     |
+| `^`      | Bitwise XOR         | `x ^ y`  |
+| `>>`     | Bitwise right shift | `x >> y` |
+| `<<`     | Bitwise left shift  | `x << y` |
+
+Example:
+
+```py
+a = 6
+b = 3
+
+print(a & b)    # AND
+print(~a)       # NOT
+print(a ^ b)    # XOR
+print(a >> 1)   # Right shift
+print(a << 1)   # Left shift
+```
+
+Output:
+
+```sh
+2
+-7
+5
+3
+12
+```
+
+## Assignment Operators
+
+These are used to assign values to variables, sometimes after performing a calculation.
+
+| Operator | Meaning                       | Example   |
+| -------- | ----------------------------- | --------- |
+| `=`      | Assign value                  | `x = 5`   |
+| `+=`     | Add and assign                | `x += 2`  |
+| `-=`     | Subtract and assign           | `x -= 2`  |
+| `*=`     | Multiply and assign           | `x *= 2`  |
+| `/=`     | Divide and assign             | `x /= 2`  |
+| `//=`    | Floor divide and assign       | `x //= 2` |
+| `%=`     | Modulus and assign            | `x %= 2`  |
+| `**=`    | Power and assign              | `x **= 2` |
+| `:=`     | Assign in expression (Walrus) | `x := 5`  |
+
+Example:
+
+```py
+# = : Assign value
+x = 5
+print(x)  # 5
+
+# += : Add and assign
+x += 3    # x = x + 3
+print(x)  # 8
+
+# -= : Subtract and assign
+x -= 2    # x = x - 2
+print(x)  # 6
+
+# *= : Multiply and assign
+x *= 4    # x = x * 4
+print(x)  # 24
+
+# /= : Divide and assign
+x /= 6    # x = x / 6
+print(x)  # 4.0
+
+# //= : Floor divide and assign
+x //= 3   # x = x // 3
+print(x)  # 1.0
+
+# %= : Modulus and assign
+x = 10
+x %= 4    # x = x % 4
+print(x)  # 2
+
+# **= : Power and assign
+x **= 3   # x = x ** 3
+print(x)  # 8
+
+# := : Walrus operator (Python 3.8+)
+items = [1, 2, 3, 4]
+while (length := len(items)) > 2:
+    print(length)
+    items.pop()
+```
+
+## Identity Operators
+
+These check whether two variables refer to the same object in memory.
+
+| Operator | Meaning                      | Example      |
+| -------- | ---------------------------- | ------------ |
+| `is`     | True if same memory location | `a is b`     |
+| `is not` | True if different location   | `a is not b` |
+
+Example
+
+```py
+a = 10
+b = 20
+c = a
+
+print(a is not b)
+print(a is c)
+```
+
+Output:
+
+```
+True
+True
+```
+
+## Membership Operators
+
+These check whether a value exists in a list, string, or other sequence.
+
+| Operator | Meaning                      | Example         |
+| -------- | ---------------------------- | --------------- |
+| `in`     | True if value is present     | `x in list`     |
+| `not in` | True if value is not present | `x not in list` |
+
+Example:
+
+```py
+fruits = ["apple", "banana", "cherry"]
+
+print("apple" in fruits)      # True
+print("mango" not in fruits)  # True
+```
+
+Output:
+
+```sh
+True
+True
 ```

@@ -3,21 +3,535 @@ title: Data Types
 description: Work with and manipulate different types of data.
 ---
 
-4.1 Overview of Python Data Types
+In Python, data types classify the types of values a variable can hold. Every value in Python has a data type. Python is a dynamically typed language, so you don’t need to explicitly declare the type of a variable.
 
-4.2 Numbers: int, float, complex
+Since everything in Python is an object, data types are actually classes, and the variables are instances (objects) of these classes.
 
-4.3 Strings
+<Mermaid
+  chart={`
+    graph TD
+    A[Python Data Types] --> B[Numeric]
+    A --> C[Dictionary]
+    A --> D[Boolean]
+    A --> E[Set]
+    A --> F[Sequence Type]
 
-- Slicing and Indexing
-- Case Methods (lower(), upper(), etc.)
-- String Methods (strip(), replace(), etc.)
-- Concatenation & Formatting (format(), f-strings)
+    B --> B1[Integer]
+    B --> B2[Float]
+    B --> B3[Complex Number]
 
-Escape Sequences
+    F --> F1[Strings]
+    F --> F2[List]
+    F --> F3[Tuple]
 
-4.4 Unicode Strings vs Byte Objects
+`}
+/>
 
-4.5 Booleans
+## Numeric
 
-4.6 Type Conversion
+The numeric data type in Python represents the data that has a numeric value.
+
+### Integer (`int`)
+
+Whole numbers, positive or negative, without decimal points.
+
+```py
+x = 10
+print(type(x))  # <class 'int'>
+```
+
+Python integers can be arbitrarily large (limited by memory).
+
+### Float (`float`)
+
+Real numbers with decimal points. Also supports scientific notation.
+
+```py
+x = 10.5
+y = 1.5e2
+print(type(x), type(y))  # <class 'float'> <class 'float'>
+```
+
+### Complex (`complex`)
+
+Used to represent complex numbers (real + imaginary). Suffix `j` is used for the imaginary part
+
+```py
+x = 2 + 3j
+print(type(x))  # <class 'complex'>
+```
+
+## Sequence Type
+
+The sequence Data Type in Python is the ordered collection of similar or different Python data types. 
+
+### String (`str`)
+
+A string is a collection of one or more characters put in a single quote, double-quote or triple quote. In python there is no character data type, a character is a string of length one. 
+
+Example:
+
+```py
+# String with single quotes
+print('Welcome to the Geeks World')
+
+# String with double quotes
+print("I'm a Geek")
+
+# String with triple quotes
+print('''I'm a Geek and I live in a world of "Geeks"''')
+```
+
+Output:
+
+```sh
+Welcome to the Geeks World
+I'm a Geek
+I'm a Geek and I live in a world of "Geeks"
+```
+
+#### Accessing elements of string:
+
+| Character          | A   | I   | c   | a   | d   | e   | m   | y   |
+| ------------------ | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Positive Index** | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| **Negative Index** | -8  | -7  | -6  | -5  | -4  | -3  | -2  | -1  |
+
+```py
+String1 = "AIcademy"
+
+# Printing First character
+print(String1[0])
+
+# Printing Last character
+print(String1[-1])
+```
+
+output:
+
+```sh
+A
+y
+```
+
+#### Deleting/Updating from a String:
+
+In Python, Updation or deletion of characters from a String is not allowed because Strings are immutable. Only new strings can be reassigned to the same name.
+
+### List
+
+Lists are just like arrays, declared in other languages which is an ordered collection of data. It is very flexible as the items in a list do not need to be of the same type.
+
+Lists in Python can be created by just placing the sequence inside the square brackets[].
+
+```py
+# Empty list
+a = []
+
+# list with int values
+a = [1, 2, 3]
+print(a)
+
+# list with mixed int and string
+b = ["Geeks", "For", "Geeks", 4, 5]
+print(b)
+```
+
+output:
+
+```sh
+[1, 2, 3]
+['Geeks', 'For', 'Geeks', 4, 5]
+```
+
+#### Access List Items
+
+Use the index operator [ ] to access an item in a list. In Python, negative sequence indexes represent positions from the end of the array. Instead of having to compute the offset as in List[len(List)-3], it is enough to just write List[-3].
+
+```py
+List = [1, 2, 3, 4, 5, 6]
+
+# accessing a element
+print(List[0])
+print(List[2])
+
+# Negative indexing
+# print the last element of list
+print(List[-1])
+# print the third last element of list
+print(List[-3])
+```
+
+output:
+
+```sh
+1
+3
+6
+4
+```
+
+Adding Elements to a List: Using append(), insert() and extend()
+
+```py
+# Creating a List
+List = []
+
+# Using append()
+List.append(1)
+List.append(2)
+print(List)
+
+# Using insert()
+List.insert(3, 12)
+List.insert(0, 'Geeks')
+print(List)
+
+# Using extend()
+List.extend([8, 'Geeks', 'Always'])
+print(List)
+```
+
+outuput:
+
+```sh
+[1, 2]
+['Geeks', 1, 2, 12]
+['Geeks', 1, 2, 12, 8, 'Geeks', 'Always']
+```
+
+Removing Elements from the List: Using remove() and pop()
+
+```py
+# Creating a List
+List = [1, 2, 3, 4, 5, 6,
+        7, 8, 9, 10, 11, 12]
+
+# using Remove() method
+List.remove(5)
+List.remove(6)
+print(List)
+
+# using pop()
+List.pop()
+print(List)
+```
+
+output:
+
+```sh
+[1, 2, 3, 4, 7, 8, 9, 10, 11, 12]
+[1, 2, 3, 4, 7, 8, 9, 10, 11]
+```
+
+### Tuple
+
+Just like a list, a tuple is also an ordered collection of Python objects. The only difference between a tuple and a list is that tuples are immutable. Tuples cannot be modified after it is created.
+
+```py
+Tuple1 = ()
+print (Tuple1)
+
+# Creating a tuple of strings
+print(('Geeks', 'For'))
+
+# Creating a Tuple of list
+print(tuple([1, 2, 4, 5, 6]))
+
+# Creating a nested Tuple
+Tuple1 = (0, 1, 2, 3)
+Tuple2 = ('python', 'geek')
+Tuple3 = (Tuple1, Tuple2)
+print(Tuple3)
+```
+
+output:
+
+```sh
+()
+('Geeks', 'For')
+(1, 2, 4, 5, 6)
+((0, 1, 2, 3), ('python', 'geek'))
+```
+
+#### Accessing element of a tuple
+
+Use the index operator [ ] to access an item in a tuple.
+
+```py
+tuple1 = tuple([1, 2, 3, 4, 5])
+
+# Accessing element using indexing
+print(tuple1[0])
+
+# Accessing element using Negative
+# Indexing
+print(tuple1[-1])
+```
+
+output:
+
+```sh
+1
+5
+```
+
+### Deleting/updating elements of tuple
+
+Items of a tuple cannot be deleted as tuples are immutable in Python. Only new tuples can be reassigned to the same name.
+
+```py
+tuple1 = tuple([1, 2, 3, 4, 5])
+
+# Updating an element
+tuple1[0] = -1
+
+# Deleting an element
+del tuple1[2]
+```
+
+## Boolean
+
+Only two values: `True` and `False`.
+
+```py
+x = True
+y = False
+print(type(x))  # <class 'bool'>
+```
+
+Booleans are often returned from comparison or logical operations.
+
+```py
+print(1 == 1)     # True
+print(1 < 2 and 3 > 1)  # True
+```
+
+## Set (`set`)
+
+Unordered collection of unique, immutable elements.
+
+```py
+s = {1, 2, 3, 2}
+print(s)  # {1, 2, 3}
+```
+
+#### Adding elements: Using add() and update()
+
+```py
+set1 = set()
+
+# Adding to the Set using add()
+set1.add(8)
+set1.add((6, 7))
+print(set1)
+
+# Additio to the Set using Update()
+set1.update([10, 11])
+print(set1)
+```
+
+output:
+
+```sh
+{8, (6, 7)}
+{8, 10, 11, (6, 7)}
+```
+
+#### Accessing a Set
+
+```py
+# Creating a set
+set1 = set(["Geeks", "For", "Geeks"])
+
+# Accessing using for loop
+for i in set1:
+    print(i, end =" ")
+```
+
+output:
+
+```sh
+Geeks For
+```
+
+#### Removing elements from a set: Using remove(), discard(), pop() and clear()
+
+```py
+
+set1 = set([1, 2, 3, 4, 5, 6,
+            7, 8, 9, 10, 11, 12])
+
+# using Remove() method
+set1.remove(5)
+set1.remove(6)
+print(set1)
+
+# using Discard() method
+set1.discard(8)
+set1.discard(9)
+print(set1)
+
+# Set using the pop() method
+set1.pop()
+print(set1)
+
+# Set using clear() method
+set1.clear()
+print(set1)
+```
+
+output:
+
+```sh
+{1, 2, 3, 4, 7, 8, 9, 10, 11, 12}
+{1, 2, 3, 4, 7, 10, 11, 12}
+{2, 3, 4, 7, 10, 11, 12}
+set()
+```
+
+## Dictionary (`dict`)
+
+Unordered collection of key-value pairs. Keys must be unique and immutable.
+
+```py
+person = {
+    "name": "Alice",
+    "age": 30
+}
+print(person["name"])  # Alice
+```
+
+output:
+
+```sh
+{}
+{1: 'Geeks', 2: 'For', 3: 'Geeks'}
+{1: [1, 2, 3, 4], 'Name': 'Geeks'}
+```
+
+#### Nested Dictionary
+
+<Mermaid
+  chart={`
+ graph TD
+  %% Main keys
+  K1["1"] --> V1["Geeks"]
+  K2["2"] --> V2["For"]
+  K3["3"] --> NK["Nested Keys"]
+
+%% Nested keys and their values
+NK --> NA["A"] --> VA["Welcome"]
+NK --> NB["B"] --> VB["To"]
+NK --> NC["C"] --> VC["Geeks"]
+
+%% Grouping (optional visual clarity)
+subgraph Keys
+K1
+K2
+K3
+end
+
+subgraph Value Set 1
+V1
+V2
+end
+
+subgraph Value Set 2
+VA
+VB
+VC
+end
+
+`}
+/>
+
+```py
+# Creating a Nested Dictionary
+# as shown in the below image
+Dict = {1: 'Geeks', 2: 'For',
+        3:{'A' : 'Welcome', 'B' : 'To', 'C' : 'Geeks'}}
+
+print(Dict)
+```
+
+output:
+
+```sh
+{1: 'Geeks', 2: 'For', 3: {'A': 'Welcome', 'B': 'To', 'C': 'Geeks'}}
+```
+
+#### Adding elements to a Dictionary
+
+One value at a time can be added to a Dictionary by defining value along with the key e.g. Dict[Key] = ‘Value’.
+
+```py
+# Creating an empty Dictionary
+Dict = {}
+
+# Adding elements one at a time
+Dict[0] = 'Geeks'
+Dict[2] = 'For'
+Dict[3] = 1
+print(Dict)
+
+
+# Updating existing Key's Value
+Dict[2] = 'Welcome'
+print(Dict)
+```
+
+output:
+
+```sh
+{0: 'Geeks', 2: 'For', 3: 1}
+{0: 'Geeks', 2: 'Welcome', 3: 1}
+```
+
+#### Accessing elements from a Dictionary
+
+In order to access the items of a dictionary refer to its key name or use get() method.
+
+```py
+# Creating a Dictionary
+Dict = {1: 'Geeks', 'name': 'For', 3: 'Geeks'}
+
+# accessing a element using key
+print(Dict['name'])
+
+# accessing a element using get()
+print(Dict.get(3))
+```
+
+Output:
+
+```sh
+For
+Geeks
+```
+
+#### Removing Elements from Dictionary
+
+Using pop() and popitem()
+
+```py
+# Initial Dictionary
+Dict = { 5 : 'Welcome', 6 : 'To', 7 : 'Geeks',
+        'A' : {1 : 'Geeks', 2 : 'For', 3 : 'Geeks'},
+       }
+
+# using pop()
+Dict.pop(5)
+print(Dict)
+
+# using popitem()
+Dict.popitem()
+print(Dict)
+```
+
+output:
+
+```sh
+{'A': {1: 'Geeks', 2: 'For', 3: 'Geeks'}, 6: 'To', 7: 'Geeks'}
+{6: 'To', 7: 'Geeks'}
+```
