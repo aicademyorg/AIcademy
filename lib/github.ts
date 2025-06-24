@@ -71,11 +71,19 @@ async function getFeedbackDestination() {
   return (cachedDestination = repository);
 }
 
-export async function onRateAction(url: string, feedback: Feedback) {
+export interface ActionResponse {
+  githubUrl: string;
+}
+
+export async function onRateAction(
+  url: string,
+  feedback: Feedback
+): Promise<ActionResponse> {
   "use server";
   const octokit = await getOctokit();
   const destination = await getFeedbackDestination();
-  if (!octokit || !destination) return;
+  if (!octokit || !destination)
+    throw new Error("GitHub comment integration is not configured.");
 
   const category = destination.discussionCategories.nodes.find(
     (category) => category.name === DocsCategory
@@ -89,42 +97,112 @@ export async function onRateAction(url: string, feedback: Feedback) {
   const title = `Feedback for ${url}`;
   const body = `[${feedback.opinion}] ${feedback.message}\n\n> Forwarded from user feedback.`;
 
-  const {
-    search: { nodes: discussions },
-  }: {
-    search: {
-      nodes: { id: string }[];
-    };
-  } = await octokit.graphql(`
+  let discussion: { id: string; url: string } | undefined;
+  const searchResult = await octokit.graphql<any>(`
     query {
       search(type: DISCUSSION, query: ${JSON.stringify(
         `${title} in:title repo:${owner}/${repo} author:@me`
       )}, first: 1) {
         nodes {
-          ... on Discussion { id }
+          ... on Discussion { id, url }
         }
       }
-    }`);
+    }
+  `);
 
-  if (discussions.length > 0) {
-    await octokit.graphql(`
-      mutation {
-        addDiscussionComment(input: { body: ${JSON.stringify(
-          body
-        )}, discussionId: "${discussions[0].id}" }) {
-          comment { id }
+  const nodes: { id: string; url: string }[] = searchResult.search.nodes;
+  if (nodes && nodes.length > 0 && nodes[0]) {
+    discussion = nodes[0];
+    try {
+      await octokit.graphql(`
+        mutation {
+          addDiscussionComment(input: { body: ${JSON.stringify(
+            body
+          )}, discussionId: "${discussion.id}" }) {
+            comment { id }
+          }
         }
-      }`);
+      `);
+    } catch (err) {
+      console.error(
+        "[onRateAction] Failed to add comment to existing discussion",
+        {
+          url,
+          feedback,
+          discussionId: discussion.id,
+          error: err,
+        }
+      );
+      throw new Error("Failed to add comment to existing discussion.");
+    }
   } else {
-    await octokit.graphql(`
-      mutation {
-        createDiscussion(input: { repositoryId: "${
-          destination.id
-        }", categoryId: "${category.id}", body: ${JSON.stringify(
-      body
-    )}, title: ${JSON.stringify(title)} }) {
-          discussion { id }
+    let result;
+    try {
+      result = await octokit.graphql<any>(`
+        mutation {
+          createDiscussion(input: { repositoryId: "${
+            destination.id
+          }", categoryId: "${category.id}", body: ${JSON.stringify(
+        body
+      )}, title: ${JSON.stringify(title)} }) {
+            discussion { id, url }
+          }
         }
-      }`);
+      `);
+      discussion = result?.createDiscussion?.discussion || result?.discussion;
+    } catch (err) {
+      console.error("[onRateAction] Error creating discussion", {
+        url,
+        feedback,
+        error: err,
+      });
+    }
+    if (!discussion) {
+      try {
+        const retrySearch = await octokit.graphql<any>(`
+          query {
+            search(type: DISCUSSION, query: ${JSON.stringify(
+              `${title} in:title repo:${owner}/${repo} author:@me`
+            )}, first: 1) {
+              nodes {
+                ... on Discussion { id, url }
+              }
+            }
+          }
+        `);
+        const retryNodes: { id: string; url: string }[] =
+          retrySearch.search.nodes;
+        if (retryNodes && retryNodes.length > 0 && retryNodes[0]) {
+          discussion = retryNodes[0];
+        }
+      } catch (err) {
+        console.error(
+          "[onRateAction] Error retrying discussion search after creation failure",
+          {
+            url,
+            feedback,
+            error: err,
+          }
+        );
+      }
+    }
   }
+
+  if (!discussion) {
+    console.error(
+      "[onRateAction] Final failure: could not find or create discussion",
+      {
+        url,
+        feedback,
+        title,
+      }
+    );
+    throw new Error(
+      "Failed to create or find a discussion for feedback. Please ensure the 'Feedback' category exists in your GitHub Discussions and your GitHub App has the correct permissions."
+    );
+  }
+
+  return {
+    githubUrl: discussion.url,
+  };
 }

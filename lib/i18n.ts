@@ -21,6 +21,7 @@ interface FeedbackTranslations {
   submitAgain: string;
   placeholder: string;
   submit: string;
+  viewOnGitHub: string;
 }
 
 interface UIDictionary {
@@ -60,6 +61,7 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       submitAgain: "Submit Again?",
       placeholder: "Leave your feedback...",
       submit: "Submit",
+      viewOnGitHub: "View on GitHub",
     },
   },
   cn: {
@@ -83,6 +85,7 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       submitAgain: "要再次提交吗？",
       placeholder: "欢迎留下您的反馈……",
       submit: "提交",
+      viewOnGitHub: "在 GitHub 查看",
     },
   },
 
@@ -107,6 +110,7 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       submitAgain: "もう一度送信しますか？",
       placeholder: "ご意見・ご感想をご記入ください…",
       submit: "送信する",
+      viewOnGitHub: "GitHub で見る",
     },
   },
   ru: {
@@ -131,6 +135,7 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       submitAgain: "Отправить снова?",
       placeholder: "Оставьте свой отзыв...",
       submit: "Отправить",
+      viewOnGitHub: "Посмотреть на GitHub",
     },
   },
   fr: {
@@ -155,6 +160,7 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       submitAgain: "Envoyer un autre retour ?",
       placeholder: "Laissez-nous votre avis...",
       submit: "Envoyer",
+      viewOnGitHub: "Voir sur GitHub",
     },
   },
 };
