@@ -15,18 +15,17 @@ const docsOptions: DocsLayoutProps = {
         const meta = source.getNodeMeta(node);
         if (!meta || !node.icon) return option;
 
-        const color = `var(--${meta.file.dirname}-color, var(--ui-color))`;
+        const color = `var(--ui-color)`;
 
         return {
           ...option,
           icon: (
             <div
-              className="rounded-lg p-1.5 shadow-lg ring-2 m-px border [&_svg]:size-6.5 md:[&_svg]:size-5"
+              className="[&_svg]:size-full rounded-lg size-full max-md:bg-(--tab-color)/10 max-md:border max-md:p-1.5"
               style={
                 {
                   color,
-                  borderColor: `color-mix(in oklab, ${color} 50%, transparent)`,
-                  "--tw-ring-color": `color-mix(in oklab, ${color} 20%, transparent)`,
+                  "--tab-color": color,
                 } as object
               }
             >
