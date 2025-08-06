@@ -4,7 +4,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { baseUrl, createMetadata } from "@/lib/metadata";
-import { Translations } from "fumadocs-ui/contexts/i18n";
+// import { Translations } from "fumadocs-ui/contexts/i18n";
 import { Language, uiDictionary } from "@/lib/i18n";
 import { Metadata } from "next";
 // import { SiteBanner } from "@/components/banner";
@@ -37,64 +37,64 @@ const mono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const cn: Partial<Translations> = {
-  search: "搜索",
-  searchNoResult: "没有找到结果",
-  toc: "目录",
-  tocNoHeadings: "没有目录",
-  lastUpdate: "最后更新",
-  chooseLanguage: "选择语言",
-  nextPage: "下一页",
-  previousPage: "上一页",
-  chooseTheme: "选择主题",
-  editOnGithub: "在GitHub上编辑",
-};
+// const cn: Partial<Translations> = {
+//   search: "搜索",
+//   searchNoResult: "没有找到结果",
+//   toc: "目录",
+//   tocNoHeadings: "没有目录",
+//   lastUpdate: "最后更新",
+//   chooseLanguage: "选择语言",
+//   nextPage: "下一页",
+//   previousPage: "上一页",
+//   chooseTheme: "选择主题",
+//   editOnGithub: "在GitHub上编辑",
+// };
 
-const ja: Partial<Translations> = {
-  search: "検索",
-  searchNoResult: "結果が見つかりません",
-  toc: "目次",
-  tocNoHeadings: "目次がありません",
-  lastUpdate: "最後の更新",
-  chooseLanguage: "言語を選択",
-  nextPage: "次のページ",
-  previousPage: "前のページ",
-  chooseTheme: "テーマを選択",
-  editOnGithub: "GitHubで編集",
-};
+// const ja: Partial<Translations> = {
+//   search: "検索",
+//   searchNoResult: "結果が見つかりません",
+//   toc: "目次",
+//   tocNoHeadings: "目次がありません",
+//   lastUpdate: "最後の更新",
+//   chooseLanguage: "言語を選択",
+//   nextPage: "次のページ",
+//   previousPage: "前のページ",
+//   chooseTheme: "テーマを選択",
+//   editOnGithub: "GitHubで編集",
+// };
 
-const ru: Partial<Translations> = {
-  search: "поиск",
-  searchNoResult: "результатов не найдено",
-  toc: "содержание",
-  tocNoHeadings: "содержание отсутствует",
-  lastUpdate: "последнее обновление",
-  chooseLanguage: "выбор языка",
-  nextPage: "следующая страница",
-  previousPage: "предыдущая страница",
-  chooseTheme: "выбор темы",
-  editOnGithub: "редактировать на GitHub",
-};
+// const ru: Partial<Translations> = {
+//   search: "поиск",
+//   searchNoResult: "результатов не найдено",
+//   toc: "содержание",
+//   tocNoHeadings: "содержание отсутствует",
+//   lastUpdate: "последнее обновление",
+//   chooseLanguage: "выбор языка",
+//   nextPage: "следующая страница",
+//   previousPage: "предыдущая страница",
+//   chooseTheme: "выбор темы",
+//   editOnGithub: "редактировать на GitHub",
+// };
 
-const fr: Partial<Translations> = {
-  search: "rechercher",
-  searchNoResult: "aucun résultat trouvé",
-  toc: "sommaire",
-  tocNoHeadings: "aucun sommaire",
-  lastUpdate: "dernière mise à jour",
-  chooseLanguage: "choisir la langue",
-  nextPage: "page suivante",
-  previousPage: "page précédente",
-  chooseTheme: "choisir le thème",
-  editOnGithub: "éditer sur GitHub",
-};
+// const fr: Partial<Translations> = {
+//   search: "rechercher",
+//   searchNoResult: "aucun résultat trouvé",
+//   toc: "sommaire",
+//   tocNoHeadings: "aucun sommaire",
+//   lastUpdate: "dernière mise à jour",
+//   chooseLanguage: "choisir la langue",
+//   nextPage: "page suivante",
+//   previousPage: "page précédente",
+//   chooseTheme: "choisir le thème",
+//   editOnGithub: "éditer sur GitHub",
+// };
 
 const locales = [
   { name: "English", locale: "en" },
-  { name: "中文", locale: "cn" },
-  { name: "日本語", locale: "ja" },
-  { name: "Français", locale: "fr" },
-  { name: "Русский", locale: "ru" },
+  // { name: "中文", locale: "cn" },
+  // { name: "日本語", locale: "ja" },
+  // { name: "Français", locale: "fr" },
+  // { name: "Русский", locale: "ru" },
 ];
 
 export default async function RootLayout({
@@ -123,7 +123,8 @@ export default async function RootLayout({
           i18n={{
             locale: lang,
             locales,
-            translations: { cn, ja, ru, fr }[lang],
+            // translations: { cn, ja, ru, fr }[lang],
+            translations: {},
           }}
         >
           {children}

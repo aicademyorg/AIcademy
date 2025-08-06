@@ -21,7 +21,7 @@ const docsOptions: DocsLayoutProps = {
           ...option,
           icon: (
             <div
-              className="[&_svg]:size-full rounded-lg size-full max-md:bg-(--tab-color)/10 max-md:border max-md:p-1.5"
+              className="[&_svg]:size-11/12 rounded-lg size-full max-md:bg-(--tab-color)/10 max-md:border max-md:p-1.5"
               style={
                 {
                   color,

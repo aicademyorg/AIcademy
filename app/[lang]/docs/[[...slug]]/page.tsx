@@ -79,7 +79,7 @@ export default async function Page(props: {
         />
         {page.data.index && <DocsCategory url={page.url} lang={lang} />}
       </DocsBody>
-      <div className="-mb-6">
+      <div className="-mb-4">
         <Rate onRateAction={onRateAction} lang={lang} />
       </div>
     </DocsPage>
