@@ -1,11 +1,11 @@
 ---
 title: Welcome
-description: Learn Python for Data Science
+description: Python for Data Science
 icon: BookOpen
 ---
 
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
-import { SiNumpy, SiPandas, SiPython } from "react-icons/si";
+import { SiNumpy, SiPandas, SiPython, SiScikitlearn } from "react-icons/si";
 
 Welcome to the **Python for Data Science** course!
 This course will teach you Python and key libraries for data science, from basics to advanced.
@@ -18,27 +18,33 @@ You’ll begin with Python basics and then learn key libraries for data science.
 
 <Cards>
 
-<Card icon={<SiPython className="text-purple-300" />} title='Python' href="#">
+<Card icon={<SiPython className="text-purple-300" />} title='Python' href="/docs/python/python">
 
 A powerful and versatile programming language widely used in machine learning.
 
 </Card>
 
-<Card icon={<SiNumpy className="text-blue-300" />} title='NumPy' href="#">
+<Card icon={<SiNumpy className="text-blue-300" />} title='NumPy' href="/docs/python/numpy">
 
 A library for fast numerical computations and working with arrays.
 
 </Card>
 
-<Card icon={<SiPandas />} title='Pandas'  href="#">
+<Card icon={<SiPandas />} title='Pandas'  href="/docs/python/pandas">
 
 A tool for data manipulation and analysis using DataFrames.
 
 </Card>
 
-<Card icon={<SiPandas />} title='Matplotlib'  href="#">
+<Card icon={<SiPandas />} title='Matplotlib'  href="/docs/python/matplotlib">
 
 A library for creating static, interactive, and animated visualizations.
+
+</Card>
+
+<Card icon={<SiScikitlearn />} title='Scikit Learn'  href="/docs/python/scikit-learn">
+
+A library for building and evaluating machine learning models.
 
 </Card>
 

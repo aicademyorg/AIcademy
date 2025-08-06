@@ -1,19 +1,18 @@
 {
   "title": "Python",
-  "description": "Python Data Science",
+  "description": "Python for Data Science",
   "icon": "SiPython",
   "root": true,
   "pages": [
     "---Introduction---",
     "index",
-    "environment",
+    "setup",
     "---Modules---",
     "python",
-    "---Libraries---",
     "numpy",
     "pandas",
     "matplotlib",
-    "seaborn",
-    "plotly"
+    "---Optional---",
+    "scikit-learn"
   ]
 }
