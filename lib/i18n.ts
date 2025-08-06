@@ -1,6 +1,6 @@
 import type { I18nConfig } from "fumadocs-core/i18n";
 
-export const languages = ["en", "cn", "ja", "ru", "fr"] as const;
+export const languages = ["en" /*, "zh", "ja", "ru", "fr"*/] as const;
 export type Language = (typeof languages)[number];
 
 export const i18n: I18nConfig = {
@@ -64,7 +64,8 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       viewOnGitHub: "View on GitHub",
     },
   },
-  cn: {
+  /*
+  zh: {
     metadata: {
       titleTemplate: "%s | AIcademy",
       defaultTitle: "AIcademy - 免费AI教育平台",
@@ -163,4 +164,5 @@ export const uiDictionary: Record<Language, UIDictionary> = {
       viewOnGitHub: "Voir sur GitHub",
     },
   },
+  */
 };
