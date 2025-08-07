@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { baseOptions, linkItems } from "@/app/layout.config";
 import { source } from "@/lib/source";
 import { Language } from "@/lib/i18n";
-import { Footer } from "@/components/footer";
+// import { Footer } from "@/components/footer";
 
 const docsOptions: DocsLayoutProps = {
   ...baseOptions,
@@ -53,7 +53,7 @@ export default async function Layout({
       tree={source.pageTree[lang]}
     >
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </DocsLayout>
   );
 }

@@ -13,6 +13,7 @@ import { Rate } from "@/components/rate";
 import { onRateAction } from "@/lib/github";
 import { i18n } from "@/lib/i18n";
 import { Card, Cards } from "fumadocs-ui/components/card";
+import { LLMCopyButtonWithDropdown } from "@/components/ai/page-actions";
 
 function DocsCategory({ url, lang }: { url: string; lang: string }) {
   return (
@@ -66,8 +67,20 @@ export default async function Page(props: {
         className: "max-sm:pb-16",
       }}
     >
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
+        <div className="flex-1">
+          <DocsTitle>{page.data.title}</DocsTitle>
+          <div className="mt-4">
+            <DocsDescription>{page.data.description}</DocsDescription>
+          </div>
+        </div>
+        <div className="flex-shrink-0 sm:ml-4 pb-4 sm:pb-0">
+          <LLMCopyButtonWithDropdown
+            markdownUrl={`${page.url}.mdx`}
+            githubUrl={`https://github.com/aicademyorg/aicademy/blob/main/content/docs/${page.file.path}`}
+          />
+        </div>
+      </div>
       <DocsBody>
         <MDXContent
           components={getMDXComponents({
