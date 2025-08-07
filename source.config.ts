@@ -13,6 +13,7 @@ export const docs = defineDocs({
   docs: {
     schema: frontmatterSchema.extend({
       index: z.boolean().default(false),
+      colab: z.string().optional(),
     }),
   },
   meta: {

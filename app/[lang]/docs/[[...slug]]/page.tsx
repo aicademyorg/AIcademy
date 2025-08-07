@@ -78,6 +78,7 @@ export default async function Page(props: {
           <LLMCopyButtonWithDropdown
             markdownUrl={`${page.url}.mdx`}
             githubUrl={`https://github.com/aicademyorg/aicademy/blob/main/content/docs/${page.file.path}`}
+            colab={page.data.colab}
           />
         </div>
       </div>
