@@ -208,7 +208,7 @@ export function LLMCopyButtonWithDropdown({
               className={cn(optionVariants(), "w-full text-left justify-start")}
             >
               {item.icon}
-              <span className="font-medium">{item.title}</span>
+              <span className="font-normal">{item.title}</span>
               <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto" />
             </a>
           ))}
