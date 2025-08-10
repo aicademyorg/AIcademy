@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
-import { Check, ChevronDown, Copy, ExternalLinkIcon } from "lucide-react";
+import { Check, ChevronDown, Copy, ExternalLinkIcon, Text } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { cn } from "../../lib/cn";
 import { useCopyButton } from "fumadocs-ui/utils/use-copy-button";
 import { buttonVariants } from "fumadocs-ui/components/ui/button";
@@ -66,6 +67,7 @@ export function LLMCopyButtonWithDropdown({
 }) {
   const [isLoading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   const [checked, onClick] = useCopyButton(async () => {
     const cached = cache.get(markdownUrl);
     if (cached) return navigator.clipboard.writeText(cached);
@@ -88,6 +90,13 @@ export function LLMCopyButtonWithDropdown({
     }
   });
 
+  const handleViewMarkdown = () => {
+    if (!pathname) return;
+    
+    // Open the current path with .md extension in a new window
+    window.open(`${pathname}.md`, '_blank');
+  };
+
   const items = useMemo(() => {
     const fullMarkdownUrl =
       typeof window !== "undefined"
@@ -96,6 +105,16 @@ export function LLMCopyButtonWithDropdown({
     const q = `Read ${fullMarkdownUrl}, I want to ask questions about it.`;
 
     const items = [
+      {
+        title: "View as Markdown",
+        onClick: handleViewMarkdown,
+        icon: (
+          <svg fill="currentColor" role="img" viewBox="0 0 24 24">
+            <title>Markdown</title>
+            <path d="M.79 7.12h22.42c.436 0 .79.355.79.792v8.176c0 .436-.354.79-.79.79H.79a.79.79 0 0 1-.79-.79V7.912a.79.79 0 0 1 .79-.791V7.12Zm2.507 7.605v-3.122l1.89 1.89L7.12 11.56v3.122h1.055v-5.67l-2.99 2.99L2.24 9.056v5.67h1.055v-.001Zm8.44-1.845-1.474-1.473-.746.746 2.747 2.747 2.745-2.747-.746-.746-1.473 1.473v-4h-1.054v4Zm10.041.987-2.175-2.175 2.22-2.22-.746-.746-2.22 2.22-2.22-2.22-.747.746 2.22 2.22-2.176 2.177.746.746 2.177-2.177 2.176 2.175.745-.746Z" />
+          </svg>
+        ),
+      },
       ...(colab
         ? [
             {
@@ -110,16 +129,7 @@ export function LLMCopyButtonWithDropdown({
             },
           ]
         : []),
-      {
-        title: "Open in GitHub",
-        href: githubUrl,
-        icon: (
-          <svg fill="currentColor" role="img" viewBox="0 0 24 24">
-            <title>GitHub</title>
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-          </svg>
-        ),
-      },
+
       {
         title: "Open in ChatGPT",
         href: `https://chatgpt.com/?${new URLSearchParams({
@@ -199,19 +209,34 @@ export function LLMCopyButtonWithDropdown({
           className="flex flex-col overflow-auto w-48"
           align="end"
         >
-          {items.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              rel="noreferrer noopener"
-              target="_blank"
-              className={cn(optionVariants(), "w-full text-left justify-start")}
-            >
-              {item.icon}
-              <span className="font-normal">{item.title}</span>
-              <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto" />
-            </a>
-          ))}
+          {items.map((item, index) => {
+            if (item.onClick) {
+              return (
+                <button
+                  key={index}
+                  onClick={item.onClick}
+                  className={cn(optionVariants(), "w-full text-left justify-start")}
+                >
+                  {item.icon}
+                  <span className="font-normal">{item.title}</span>
+                  <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto" />
+                </button>
+              );
+            }
+            return (
+              <a
+                key={index}
+                href={item.href}
+                rel="noreferrer noopener"
+                target="_blank"
+                className={cn(optionVariants(), "w-full text-left justify-start")}
+              >
+                {item.icon}
+                <span className="font-normal">{item.title}</span>
+                <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto" />
+              </a>
+            );
+          })}
         </PopoverContent>
       </Popover>
     </div>
@@ -219,5 +244,5 @@ export function LLMCopyButtonWithDropdown({
 }
 
 const optionVariants = cva(
-  "text-sm p-2 rounded-lg inline-flex items-center gap-2 hover:text-fd-accent-foreground hover:bg-fd-accent [&_svg]:size-4"
+  "text-sm p-2 rounded-lg inline-flex items-center gap-2 hover:text-fd-accent-foreground hover:bg-fd-accent [&_svg]:size-4 cursor-pointer"
 );
