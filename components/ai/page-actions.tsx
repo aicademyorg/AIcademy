@@ -92,9 +92,9 @@ export function LLMCopyButtonWithDropdown({
 
   const handleViewMarkdown = () => {
     if (!pathname) return;
-    
+
     // Open the current path with .md extension in a new window
-    window.open(`${pathname}.md`, '_blank');
+    window.open(`${pathname}.md`, "_blank");
   };
 
   const items = useMemo(() => {
@@ -109,10 +109,25 @@ export function LLMCopyButtonWithDropdown({
         title: "View as Markdown",
         onClick: handleViewMarkdown,
         icon: (
-          <svg fill="currentColor" role="img" viewBox="0 0 24 24">
+          <svg
+            fill="currentColor"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <title>Markdown</title>
-            <path d="M.79 7.12h22.42c.436 0 .79.355.79.792v8.176c0 .436-.354.79-.79.79H.79a.79.79 0 0 1-.79-.79V7.912a.79.79 0 0 1 .79-.791V7.12Zm2.507 7.605v-3.122l1.89 1.89L7.12 11.56v3.122h1.055v-5.67l-2.99 2.99L2.24 9.056v5.67h1.055v-.001Zm8.44-1.845-1.474-1.473-.746.746 2.747 2.747 2.745-2.747-.746-.746-1.473 1.473v-4h-1.054v4Zm10.041.987-2.175-2.175 2.22-2.22-.746-.746-2.22 2.22-2.22-2.22-.747.746 2.22 2.22-2.176 2.177.746.746 2.177-2.177 2.176 2.175.745-.746Z" />
+            <path d="M0 16.943V6.44h2.462l3.846 4.142L10.154 6.44h2.462v10.503h-2.462v-6.778l-3.846 4.142L2.462 10.165v6.778H0zm17.231-10.503h3.462v5.254H24l-4.923 5.907-4.923-5.907h3.077V6.44z" />
           </svg>
+          // <svg
+          //   viewBox="0 0 600 600"
+          //   preserveAspectRatio="xMidYMid meet"
+          //   xmlns="http://www.w3.org/2000/svg"
+          //   fill="currentColor"
+          //   role="img"
+          // >
+          //   <path d="M0 177V436H77.1084V287.664L154.217 381.845L231.325 287.664V436H308.434V177H231.325L154.217 271.182L77.1084 177H0Z" />
+          //   <path d="M368.675 311.209L484.337 436L600 308.855H522.892V177H445.783V311.209H368.675Z" />
+          // </svg>
         ),
       },
       ...(colab
@@ -215,7 +230,10 @@ export function LLMCopyButtonWithDropdown({
                 <button
                   key={index}
                   onClick={item.onClick}
-                  className={cn(optionVariants(), "w-full text-left justify-start")}
+                  className={cn(
+                    optionVariants(),
+                    "w-full text-left justify-start"
+                  )}
                 >
                   {item.icon}
                   <span className="font-normal">{item.title}</span>
@@ -229,7 +247,10 @@ export function LLMCopyButtonWithDropdown({
                 href={item.href}
                 rel="noreferrer noopener"
                 target="_blank"
-                className={cn(optionVariants(), "w-full text-left justify-start")}
+                className={cn(
+                  optionVariants(),
+                  "w-full text-left justify-start"
+                )}
               >
                 {item.icon}
                 <span className="font-normal">{item.title}</span>
