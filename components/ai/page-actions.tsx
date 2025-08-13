@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import { Check, ChevronDown, Copy, ExternalLinkIcon, Text } from "lucide-react";
+import { Check, ChevronDown, Copy, ExternalLinkIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "../../lib/cn";
 import { useCopyButton } from "fumadocs-ui/utils/use-copy-button";
@@ -109,25 +109,14 @@ export function LLMCopyButtonWithDropdown({
         title: "View as Markdown",
         onClick: handleViewMarkdown,
         icon: (
-          <svg
-            fill="currentColor"
-            role="img"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Markdown</title>
-            <path d="M0 16.943V6.44h2.462l3.846 4.142L10.154 6.44h2.462v10.503h-2.462v-6.778l-3.846 4.142L2.462 10.165v6.778H0zm17.231-10.503h3.462v5.254H24l-4.923 5.907-4.923-5.907h3.077V6.44z" />
+          <svg strokeLinejoin="round" viewBox="0 0 22 16">
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M19.5 2.25H2.5C1.80964 2.25 1.25 2.80964 1.25 3.5V12.5C1.25 13.1904 1.80964 13.75 2.5 13.75H19.5C20.1904 13.75 20.75 13.1904 20.75 12.5V3.5C20.75 2.80964 20.1904 2.25 19.5 2.25ZM2.5 1C1.11929 1 0 2.11929 0 3.5V12.5C0 13.8807 1.11929 15 2.5 15H19.5C20.8807 15 22 13.8807 22 12.5V3.5C22 2.11929 20.8807 1 19.5 1H2.5ZM3 4.5H4H4.25H4.6899L4.98715 4.82428L7 7.02011L9.01285 4.82428L9.3101 4.5H9.75H10H11V5.5V11.5H9V7.79807L7.73715 9.17572L7 9.97989L6.26285 9.17572L5 7.79807V11.5H3V5.5V4.5ZM15 8V4.5H17V8H19.5L17 10.5L16 11.5L15 10.5L12.5 8H15Z"
+              fill="currentColor"
+            />
           </svg>
-          // <svg
-          //   viewBox="0 0 600 600"
-          //   preserveAspectRatio="xMidYMid meet"
-          //   xmlns="http://www.w3.org/2000/svg"
-          //   fill="currentColor"
-          //   role="img"
-          // >
-          //   <path d="M0 177V436H77.1084V287.664L154.217 381.845L231.325 287.664V436H308.434V177H231.325L154.217 271.182L77.1084 177H0Z" />
-          //   <path d="M368.675 311.209L484.337 436L600 308.855H522.892V177H445.783V311.209H368.675Z" />
-          // </svg>
         ),
       },
       ...(colab
@@ -221,7 +210,7 @@ export function LLMCopyButtonWithDropdown({
           />
         </PopoverTrigger>
         <PopoverContent
-          className="flex flex-col overflow-auto w-48"
+          className="flex flex-col overflow-auto w-auto min-w-44"
           align="end"
         >
           {items.map((item, index) => {
@@ -236,7 +225,7 @@ export function LLMCopyButtonWithDropdown({
                   )}
                 >
                   {item.icon}
-                  <span className="font-normal">{item.title}</span>
+                  <span className="font-normal mr-4">{item.title}</span>
                   <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto" />
                 </button>
               );
@@ -253,7 +242,7 @@ export function LLMCopyButtonWithDropdown({
                 )}
               >
                 {item.icon}
-                <span className="font-normal">{item.title}</span>
+                <span className="font-normal mr-4">{item.title}</span>
                 <ExternalLinkIcon className="text-fd-muted-foreground size-3.5 ms-auto" />
               </a>
             );
