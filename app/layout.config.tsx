@@ -1,6 +1,6 @@
 import { type LinkItemType } from "fumadocs-ui/layouts/docs";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { i18n, Language, localizeUrl, uiDictionary } from "@/lib/i18n";
+import { i18n, uiDictionary } from "@/lib/i18n";
 import Image from "next/image";
 import DarkLogo from "@/public/logo-dark.png";
 import LightLogo from "@/public/logo-light.png";
@@ -36,9 +36,10 @@ export const logo = (
   </>
 );
 
-export function baseOptions(locale: Language): BaseLayoutProps {
+export function baseOptions(locale: string): BaseLayoutProps {
   const navLinks =
-    uiDictionary[locale as keyof typeof uiDictionary].nav.navigation;
+    uiDictionary[locale as keyof typeof uiDictionary]?.nav?.navigation ||
+    uiDictionary.en.nav.navigation;
   return {
     i18n,
     nav: {
@@ -50,7 +51,7 @@ export function baseOptions(locale: Language): BaseLayoutProps {
           </span>
         </>
       ),
-      url: localizeUrl("/", locale),
+      url: locale === i18n.defaultLanguage ? "/" : `/${locale}`,
       transparentMode: "top",
     },
     links: [

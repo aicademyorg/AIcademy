@@ -11,14 +11,13 @@ import { Footer } from "@/components/footer";
 import Link from "fumadocs-core/link";
 import Image from "next/image";
 import Preview from "@/public/learn/python/banner.png";
-import { Language } from "@/lib/i18n";
 import { Code } from "lucide-react";
 
 export default async function Layout({
   params,
   children,
 }: {
-  params: Promise<{ lang: Language }>;
+  params: Promise<{ lang: string }>;
   children: ReactNode;
 }) {
   const { lang } = await params;

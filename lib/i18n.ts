@@ -1,13 +1,12 @@
-import type { I18nConfig } from "fumadocs-core/i18n";
+import { defineI18n } from "fumadocs-core/i18n";
 
-export const languages = ["en" /*, "zh", "ja", "ru", "fr"*/] as const;
-export type Language = (typeof languages)[number];
-
-export const i18n: I18nConfig = {
+export const i18n = defineI18n({
   defaultLanguage: "en",
-  languages: [...languages],
+  languages: ["en" /*, "zh", "ja", "ru", "fr"*/],
   hideLocale: "default-locale",
-};
+});
+
+export type Language = (typeof i18n.languages)[number];
 
 export function localizeUrl(url: string, lang: Language): string {
   return lang === i18n.defaultLanguage ? url : `/${lang}${url}`;

@@ -2,7 +2,6 @@ import { DocsLayout, type DocsLayoutProps } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import { baseOptions, linkItems } from "@/app/layout.config";
 import { source } from "@/lib/source";
-import { Language } from "@/lib/i18n";
 // import { Footer } from "@/components/footer";
 
 const docsOptions: DocsLayoutProps = {
@@ -42,7 +41,7 @@ export default async function Layout({
   params,
   children,
 }: {
-  params: Promise<{ lang: Language }>;
+  params: Promise<{ lang: string }>;
   children: ReactNode;
 }) {
   const { lang } = await params;
