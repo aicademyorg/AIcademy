@@ -5,7 +5,7 @@ import { i18n } from "@/lib/i18n";
 
 const i18nMiddleware = createI18nMiddleware(i18n);
 
-export function middleware(request: NextRequest, event: NextFetchEvent) {
+export function proxy(request: NextRequest, event: NextFetchEvent) {
   const { pathname } = request.nextUrl;
 
   // Handle .md requests
