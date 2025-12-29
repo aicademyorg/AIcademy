@@ -1,6 +1,6 @@
 import "./global.css";
 import "katex/dist/katex.css";
-import { RootProvider } from "fumadocs-ui/provider";
+import { RootProvider } from 'fumadocs-ui/provider/next';
 import { defineI18nUI } from "fumadocs-ui/i18n";
 import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -13,7 +13,7 @@ const { provider } = defineI18nUI(i18n, {
     en: {
       displayName: "English",
     },
-    // Add other languages as needed
+    // Add other languages
     // cn: {
     //   displayName: 'Chinese',
     //   search: '搜尋文檔',

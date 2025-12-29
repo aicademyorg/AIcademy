@@ -8,7 +8,8 @@ import {
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
-import { getGithubLastEdit, getPageTreePeers } from "fumadocs-core/server";
+import { getGithubLastEdit } from "fumadocs-core/content/github";
+import { getPageTreePeers } from "fumadocs-core/page-tree";
 import { Rate } from "@/components/rate";
 import { onRateAction } from "@/lib/github";
 import { i18n } from "@/lib/i18n";
@@ -36,10 +37,12 @@ export default async function Page(props: {
 
   const MDXContent = page.data.body;
 
+  // Construct file path from page slugs
+  const filePath = page.slugs.join("/") + ".mdx";
   const contentPath =
     lang === i18n.defaultLanguage
-      ? `content/docs/${page.file.path}`
-      : `content/docs/${page.file.path.replace(/\.mdx$/, `.${lang}.mdx`)}`;
+      ? `content/docs/${filePath}`
+      : `content/docs/${filePath.replace(/\.mdx$/, `.${lang}.mdx`)}`;
 
   const lastEdit = await getGithubLastEdit({
     path: contentPath,
@@ -63,10 +66,7 @@ export default async function Page(props: {
         repo: "aicademy",
         path: contentPath,
       }}
-      article={{
-        className: "max-sm:pb-16",
-      }}
-    >
+>
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
         <div className="flex-1">
           <DocsTitle>{page.data.title}</DocsTitle>
@@ -77,12 +77,12 @@ export default async function Page(props: {
         <div className="flex-shrink-0 sm:ml-4 pb-4 sm:pb-0">
           <LLMCopyButtonWithDropdown
             markdownUrl={`${page.url}.mdx`}
-            githubUrl={`https://github.com/aicademyorg/aicademy/blob/main/content/docs/${page.file.path}`}
+            githubUrl={`https://github.com/aicademyorg/aicademy/blob/main/content/docs/${filePath}`}
             colab={page.data.colab}
           />
         </div>
       </div>
-      <DocsBody>
+      <DocsBody className="max-sm:pb-16">
         <MDXContent
           components={getMDXComponents({
             a: createRelativeLink(source, page),
@@ -93,9 +93,7 @@ export default async function Page(props: {
         />
         {page.data.index && <DocsCategory url={page.url} lang={lang} />}
       </DocsBody>
-      <div className="-mb-4">
         <Rate onRateAction={onRateAction} lang={lang} />
-      </div>
     </DocsPage>
   );
 }

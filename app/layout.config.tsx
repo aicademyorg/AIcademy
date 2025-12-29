@@ -1,4 +1,4 @@
-import { type LinkItemType } from "fumadocs-ui/layouts/docs";
+import type { LinkItemType } from "fumadocs-ui/layouts/shared";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import { i18n, uiDictionary } from "@/lib/i18n";
 import Image from "next/image";

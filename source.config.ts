@@ -15,6 +15,9 @@ export const docs = defineDocs({
       index: z.boolean().default(false),
       colab: z.string().optional(),
     }),
+    postprocess: {
+      includeProcessedMarkdown: true,
+    },
   },
   meta: {
     schema: metaSchema,
