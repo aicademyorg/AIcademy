@@ -1,5 +1,5 @@
 import { App, Octokit } from "octokit";
-import type { Feedback } from "@/components/rate";
+import type { Feedback } from "@/components/feedback";
 
 export const repo = "AIcademy";
 export const owner = "aicademyorg";

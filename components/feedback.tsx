@@ -37,7 +37,7 @@ interface Result extends Feedback {
   response?: ActionResponse;
 }
 
-export function Rate({
+export function Feedback({
   onRateAction,
   lang = "en",
 }: {

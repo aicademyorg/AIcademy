@@ -10,7 +10,7 @@ import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
 import { getGithubLastEdit } from "fumadocs-core/content/github";
 import { getPageTreePeers } from "fumadocs-core/page-tree";
-import { Rate } from "@/components/rate";
+import { Feedback } from "@/components/feedback";
 import { onRateAction } from "@/lib/github";
 import { i18n } from "@/lib/i18n";
 import { Card, Cards } from "fumadocs-ui/components/card";
@@ -66,7 +66,7 @@ export default async function Page(props: {
         repo: "aicademy",
         path: contentPath,
       }}
->
+    >
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
         <div className="flex-1">
           <DocsTitle>{page.data.title}</DocsTitle>
@@ -93,7 +93,7 @@ export default async function Page(props: {
         />
         {page.data.index && <DocsCategory url={page.url} lang={lang} />}
       </DocsBody>
-        <Rate onRateAction={onRateAction} lang={lang} />
+      <Feedback onRateAction={onRateAction} lang={lang} />
     </DocsPage>
   );
 }
