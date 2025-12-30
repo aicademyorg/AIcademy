@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation";
 import { uiDictionary } from "@/lib/i18n";
 
 const rateButtonVariants = cva(
-  "inline-flex items-center gap-2 px-3 py-2 rounded-full font-medium border text-sm [&_svg]:size-4 disabled:cursor-not-allowed",
+  "inline-flex cursor-pointer items-center gap-2 px-3 py-2 rounded-full font-medium border text-sm [&_svg]:size-4 disabled:cursor-not-allowed",
   {
     variants: {
       active: {
@@ -55,14 +55,12 @@ export function Feedback({
 
   useEffect(() => {
     const item = localStorage.getItem(`docs-feedback-${url}`);
-
     if (item === null) return;
     setPrevious(JSON.parse(item) as Result);
   }, [url]);
 
   useEffect(() => {
     const key = `docs-feedback-${url}`;
-
     if (previous) localStorage.setItem(key, JSON.stringify(previous));
     else localStorage.removeItem(key);
   }, [previous, url]);
@@ -101,6 +99,7 @@ export function Feedback({
     >
       <div className="flex flex-row items-center gap-2">
         <p className="text-sm font-medium pe-2">{t.wasHelpful}</p>
+
         <button
           disabled={previous !== null}
           className={cn(
@@ -108,13 +107,12 @@ export function Feedback({
               active: activeOpinion === "good",
             })
           )}
-          onClick={() => {
-            setOpinion("good");
-          }}
+          onClick={() => setOpinion("good")}
         >
           <ThumbsUp />
           {t.good}
         </button>
+
         <button
           disabled={previous !== null}
           className={cn(
@@ -122,38 +120,35 @@ export function Feedback({
               active: activeOpinion === "bad",
             })
           )}
-          onClick={() => {
-            setOpinion("bad");
-          }}
+          onClick={() => setOpinion("bad")}
         >
           <ThumbsDown />
           {t.bad}
         </button>
       </div>
+
       <CollapsibleContent className="mt-3">
         {previous ? (
           <div className="px-3 py-6 flex flex-col items-center gap-3 bg-fd-card text-fd-card-foreground text-sm text-center rounded-xl text-fd-muted-foreground">
             <p>{t.thankYou}</p>
+
             <div className="flex flex-row items-center gap-2">
               <a
                 href={previous.response?.githubUrl}
                 rel="noreferrer noopener"
                 target="_blank"
                 className={cn(
-                  buttonVariants({
-                    color: "primary",
-                  }),
-                  "text-xs"
+                  buttonVariants({ color: "primary" }),
+                  "text-xs cursor-pointer"
                 )}
               >
                 {t.viewOnGitHub}
               </a>
+
               <button
                 className={cn(
-                  buttonVariants({
-                    color: "secondary",
-                  }),
-                  "text-xs"
+                  buttonVariants({ color: "secondary" }),
+                  "text-xs cursor-pointer"
                 )}
                 onClick={() => {
                   setOpinion(previous.opinion);
@@ -179,10 +174,14 @@ export function Feedback({
                 }
               }}
             />
+
             <button
               type="submit"
-              className={cn(buttonVariants({ color: "outline" }), "w-fit px-3")}
               disabled={isPending}
+              className={cn(
+                buttonVariants({ color: "outline" }),
+                "w-fit px-3 cursor-pointer disabled:cursor-not-allowed"
+              )}
             >
               {t.submit}
             </button>
