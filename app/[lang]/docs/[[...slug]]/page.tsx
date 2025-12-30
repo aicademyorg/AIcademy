@@ -4,7 +4,8 @@ import {
   DocsBody,
   DocsDescription,
   DocsTitle,
-} from "fumadocs-ui/page";
+  PageLastUpdate,
+} from "fumadocs-ui/layouts/docs/page";
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
@@ -15,6 +16,7 @@ import { onRateAction } from "@/lib/github";
 import { i18n } from "@/lib/i18n";
 import { Card, Cards } from "fumadocs-ui/components/card";
 import { LLMCopyButtonWithDropdown } from "@/components/ai/page-actions";
+import { SquarePen } from "lucide-react";
 
 function DocsCategory({ url, lang }: { url: string; lang: string }) {
   return (
@@ -37,19 +39,22 @@ export default async function Page(props: {
 
   const MDXContent = page.data.body;
 
-  // Construct file path from page slugs
-  const filePath = page.slugs.join("/") + ".mdx";
-  const contentPath =
-    lang === i18n.defaultLanguage
-      ? `content/docs/${filePath}`
-      : `content/docs/${filePath.replace(/\.mdx$/, `.${lang}.mdx`)}`;
+  let githubPath: string;
 
-  const lastEdit = await getGithubLastEdit({
-    path: contentPath,
+  if (lang === i18n.defaultLanguage) {
+    githubPath = `content/docs/${page.path}`;
+  } else {
+    githubPath = `content/docs/${page.path.replace(/\.mdx$/, `.${lang}.mdx`)}`;
+  }
+
+  const lastModifiedTime = await getGithubLastEdit({
     owner: "aicademyorg",
     repo: "aicademy",
+    path: githubPath,
     token: process.env.GITHUB_TOKEN,
   });
+
+  const githubUrl = `https://github.com/aicademyorg/aicademy/blob/main/${githubPath}`;
 
   return (
     <DocsPage
@@ -58,13 +63,6 @@ export default async function Page(props: {
       tableOfContent={{
         style: "clerk",
         single: false,
-      }}
-      lastUpdate={lastEdit ?? undefined}
-      editOnGithub={{
-        sha: "main",
-        owner: "aicademyorg",
-        repo: "aicademy",
-        path: contentPath,
       }}
     >
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start">
@@ -77,7 +75,7 @@ export default async function Page(props: {
         <div className="flex-shrink-0 sm:ml-4 pb-4 sm:pb-0">
           <LLMCopyButtonWithDropdown
             markdownUrl={`${page.url}.mdx`}
-            githubUrl={`https://github.com/aicademyorg/aicademy/blob/main/content/docs/${filePath}`}
+            githubUrl={githubUrl}
             colab={page.data.colab}
           />
         </div>
@@ -94,6 +92,18 @@ export default async function Page(props: {
         {page.data.index && <DocsCategory url={page.url} lang={lang} />}
       </DocsBody>
       <Feedback onRateAction={onRateAction} lang={lang} />
+      <div className="flex items-center justify-between">
+        <a
+          href={githubUrl}
+          rel="noreferrer noopener"
+          target="_blank"
+          className="w-fit border rounded-lg py-1.5 px-2 font-medium text-xs text-fd-secondary-foreground bg-fd-secondary transition-colors hover:text-fd-accent-foreground hover:bg-fd-accent inline-flex items-center gap-1.5"
+        >
+          <SquarePen className="size-3.5" />
+          Edit on GitHub
+        </a>
+        {lastModifiedTime && <PageLastUpdate date={lastModifiedTime} />}
+      </div>
     </DocsPage>
   );
 }
