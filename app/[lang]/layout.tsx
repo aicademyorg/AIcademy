@@ -3,7 +3,7 @@ import "katex/dist/katex.css";
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { defineI18nUI } from "fumadocs-ui/i18n";
 import type { ReactNode } from "react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist, Geist_Mono } from "next/font/google";
 import { baseUrl, createMetadata } from "@/lib/metadata";
 import { i18n, uiDictionary } from "@/lib/i18n";
 import { Metadata } from "next";
@@ -51,6 +51,11 @@ const mono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
+
 export default async function RootLayout({
   params,
   children,
@@ -62,7 +67,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className={`${geist.variable} ${mono.variable}`}
+      className={`${inter.className} ${mono.variable}`}
       suppressHydrationWarning
     >
       <body
